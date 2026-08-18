@@ -22,6 +22,10 @@
     --accent-dim:#e0523f1a;
     --shadow: 0 20px 60px -20px rgba(0,0,0,0.6);
     --radius: 14px;
+    --grid-bg:#000000;
+    --grid-dot:#FFFFFF;
+    --grid-line:#80ACFF;
+    --grid-trail:#2664EB;
   }
 
   [data-theme="light"]{
@@ -33,6 +37,10 @@
     --text:#181611;
     --muted:#6b6558;
     --shadow: 0 20px 60px -25px rgba(20,15,5,0.25);
+    --grid-bg:#f3f1ec;
+    --grid-dot:#181611;
+    --grid-line:#94a3b8;
+    --grid-trail:#e0523f;
   }
 
   *{margin:0;padding:0;box-sizing:border-box;}
@@ -40,15 +48,29 @@
   html{scroll-behavior:smooth;}
 
   body{
-    background:
-      radial-gradient(1200px 600px at 85% -10%, var(--accent-dim), transparent 60%),
-      radial-gradient(900px 500px at -10% 20%, var(--accent-2-dim), transparent 55%),
-      var(--bg);
+    background:var(--bg);
     color:var(--text);
     font-family:'Inter', system-ui, sans-serif;
     line-height:1.6;
     transition: background-color .35s ease, color .35s ease;
     overflow-x:hidden;
+    position:relative;
+  }
+
+  /* Kinetic Grid Background Canvas */
+  #kinetic-grid-canvas {
+    position: fixed;
+    inset: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* Ensure content stays above the background canvas */
+  header.nav, section, footer {
+    position: relative;
+    z-index: 1;
   }
 
   .mono{ font-family:'JetBrains Mono', monospace; }
@@ -383,7 +405,6 @@
   /* ---------- github ---------- */
   .gh-panel{ text-align:center; }
   .gh-panel img{ width:100%; border-radius:10px; margin-top:20px; filter:var(--gh-filter, none); }
-  [data-theme="dark"] .gh-panel img{ }
 
   /* ---------- contact ---------- */
   .contact-grid{ display:grid; grid-template-columns:.85fr 1.15fr; gap:60px; }
@@ -471,6 +492,9 @@
 </style>
 </head>
 <body data-theme="dark">
+
+<!-- Kinetic Grid Canvas Background Layer -->
+<canvas id="kinetic-grid-canvas"></canvas>
 
 <header class="nav">
   <div class="nav-inner">
@@ -946,7 +970,6 @@
     const message = this.message.value;
     const accessKey = this.access_key.value;
 
-    // Fallback: no Web3Forms key configured yet -> open the visitor's email client instead
     if (!accessKey || accessKey === 'YOUR_WEB3FORMS_ACCESS_KEY') {
       const body = `Name: ${name}\nEmail: ${email}\n\n${message}`;
       window.location.href = `mailto:prabhatbhattarai456@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
@@ -981,6 +1004,196 @@
     }
   });
 
+  // ---- Kinetic Grid Background Script (Vanilla JS conversion) ----
+  window.addEventListener('DOMContentLoaded', () => {
+    const canvas = document.getElementById('kinetic-grid-canvas');
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
+
+    const spacing = 30;
+    const radius = 400;
+    const strength = 4;
+    const PULL = (Math.max(1, Math.min(10, strength)) / 10) * 4;
+    const GAP = Math.max(8, spacing);
+    const R = Math.max(1, radius);
+
+    let W = window.innerWidth;
+    let H = window.innerHeight;
+    let dots = [];
+    let cols = [];
+
+    const mouse = { x: -9999, y: -9999, active: false };
+    const trail = [];
+
+    function buildGrid() {
+      W = window.innerWidth;
+      H = window.innerHeight;
+      const dpr = window.devicePixelRatio || 1;
+      canvas.width = Math.floor(W * dpr);
+      canvas.height = Math.floor(H * dpr);
+      canvas.style.width = W + 'px';
+      canvas.style.height = H + 'px';
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+      cols = [];
+      dots = [];
+      const nCols = Math.floor(W / GAP) + 2;
+      const nRows = Math.floor(H / GAP) + 2;
+
+      for (let c = 0; c < nCols; c++) {
+        const col = [];
+        for (let rIdx = 0; rIdx < nRows; rIdx++) {
+          const hx = c * GAP;
+          const hy = rIdx * GAP;
+          const d = { hx, hy, x: hx, y: hy, vx: 0, vy: 0 };
+          col.push(d);
+          dots.push(d);
+        }
+        cols.push(col);
+      }
+    }
+
+    buildGrid();
+    window.addEventListener('resize', () => buildGrid());
+
+    window.addEventListener('mousemove', (e) => {
+      mouse.x = e.clientX;
+      mouse.y = e.clientY;
+      mouse.active = true;
+      const now = performance.now();
+      trail.push({ x: e.clientX, y: e.clientY, t: now });
+      if (trail.length > 80) trail.shift();
+    });
+
+    window.addEventListener('mouseleave', () => {
+      mouse.active = false;
+      mouse.x = -9999;
+      mouse.y = -9999;
+    });
+
+    window.addEventListener('touchmove', (e) => {
+      const t = e.touches[0];
+      if (t) {
+        mouse.x = t.clientX;
+        mouse.y = t.clientY;
+        mouse.active = true;
+        const now = performance.now();
+        trail.push({ x: t.clientX, y: t.clientY, t: now });
+        if (trail.length > 80) trail.shift();
+      }
+    }, { passive: true });
+
+    window.addEventListener('touchend', () => {
+      mouse.active = false;
+      mouse.x = -9999;
+      mouse.y = -9999;
+    });
+
+    function getComputedColor(variableName) {
+      return getComputedStyle(document.documentElement).getPropertyValue(variableName).trim();
+    }
+
+    let raf = 0;
+    function frame() {
+      ctx.clearRect(0, 0, W, H);
+
+      const computedBg = getComputedColor('--grid-bg');
+      const computedDotColor = getComputedColor('--grid-dot');
+      const computedLineColor = getComputedColor('--grid-line');
+      const computedTrailColor = getComputedColor('--grid-trail');
+
+      // Draw background fill
+      ctx.fillStyle = computedBg;
+      ctx.fillRect(0, 0, W, H);
+
+      // Physics update
+      for (const d of dots) {
+        let ax = (d.hx - d.x) * 0.08;
+        let ay = (d.hy - d.y) * 0.08;
+        if (mouse.active) {
+          const dx = mouse.x - d.x;
+          const dy = mouse.y - d.y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < R && dist > 0.001) {
+            const f = (1 - dist / R) * PULL;
+            ax += (dx / dist) * f;
+            ay += (dy / dist) * f;
+          }
+        }
+        d.vx = (d.vx + ax) * 0.82;
+        d.vy = (d.vy + ay) * 0.82;
+        d.x += d.vx;
+        d.y += d.vy;
+      }
+
+      // Draw Grid Lines
+      for (let c = 0; c < cols.length; c++) {
+        for (let rIdx = 0; rIdx < cols[c].length; rIdx++) {
+          const d = cols[c][rIdx];
+          const right = cols[c + 1]?.[rIdx];
+          const down = cols[c]?.[rIdx + 1];
+          const prox = mouse.active
+            ? Math.max(0, 1 - Math.sqrt((mouse.x - d.x) ** 2 + (mouse.y - d.y) ** 2) / R)
+            : 0;
+
+          if (right) {
+            ctx.globalAlpha = 0.06 + prox * 0.7;
+            ctx.strokeStyle = computedLineColor;
+            ctx.lineWidth = 0.5 + prox * 1.5;
+            ctx.beginPath();
+            ctx.moveTo(d.x, d.y);
+            ctx.lineTo(right.x, right.y);
+            ctx.stroke();
+          }
+          if (down) {
+            ctx.globalAlpha = 0.06 + prox * 0.7;
+            ctx.strokeStyle = computedLineColor;
+            ctx.lineWidth = 0.5 + prox * 1.5;
+            ctx.beginPath();
+            ctx.moveTo(d.x, d.y);
+            ctx.lineTo(down.x, down.y);
+            ctx.stroke();
+          }
+        }
+      }
+
+      // Draw Dots
+      for (const d of dots) {
+        const prox = mouse.active
+          ? Math.max(0, 1 - Math.sqrt((mouse.x - d.x) ** 2 + (mouse.y - d.y) ** 2) / R)
+          : 0;
+        ctx.globalAlpha = 0.22 + prox * 0.78;
+        ctx.fillStyle = computedDotColor;
+        ctx.beginPath();
+        ctx.arc(d.x, d.y, 0.8 + prox * 2.2, 0, 2 * Math.PI);
+        ctx.fill();
+      }
+
+      // Draw Trail
+      const now = performance.now();
+      ctx.lineCap = 'round';
+      ctx.lineJoin = 'round';
+      for (let i = 1; i < trail.length; i++) {
+        const a = trail[i - 1];
+        const b = trail[i];
+        const age = now - b.t;
+        if (age > 260) continue;
+        ctx.globalAlpha = Math.max(0, 1 - age / 260) * 0.85;
+        ctx.strokeStyle = computedTrailColor;
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.moveTo(a.x, a.y);
+        ctx.lineTo(b.x, b.y);
+        ctx.stroke();
+      }
+
+      ctx.globalAlpha = 1;
+      raf = requestAnimationFrame(frame);
+    }
+
+    raf = requestAnimationFrame(frame);
+  });
 </script>
 </body>
 </html>
