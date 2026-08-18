@@ -55,6 +55,36 @@
     transition: background-color .35s ease, color .35s ease;
     overflow-x:hidden;
     position:relative;
+    cursor: none !important;
+  }
+
+  /* Ensure proper cursor behavior across interactive elements */
+  a, button, .theme-toggle, .nav-toggle, .project-card, .social-btn, .btn {
+    cursor: none !important;
+  }
+
+  /* Custom cursor follower */
+  #custom-cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: var(--accent-2);
+    box-shadow: 0 0 12px var(--accent-2);
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    transition: width 0.15s ease, height 0.15s ease, background 0.15s ease;
+    z-index: 99999;
+    mix-blend-mode: difference;
+  }
+
+  @media (pointer: coarse) {
+    body, a, button, .theme-toggle, .nav-toggle, .project-card, .social-btn, .btn {
+      cursor: auto !important;
+    }
+    #custom-cursor { display: none !important; }
   }
 
   /* Kinetic Grid Background Canvas */
@@ -147,7 +177,6 @@
     border:1px solid var(--border);
     background:var(--surface);
     display:flex; align-items:center; justify-content:center;
-    cursor:pointer;
     color:var(--text);
     transition:border-color .2s ease;
   }
@@ -220,7 +249,6 @@
     padding:14px 22px;
     border-radius:10px;
     display:inline-flex; align-items:center; gap:8px;
-    cursor:pointer;
     border:1px solid transparent;
     transition:transform .18s ease, border-color .18s ease, background .18s ease;
   }
@@ -479,7 +507,7 @@
     .nav-links a{ padding:12px 0; width:100%; border-bottom:1px solid var(--border); }
     .nav-toggle{
       display:flex; width:38px;height:38px; border-radius:10px; border:1px solid var(--border);
-      background:var(--surface); align-items:center; justify-content:center; cursor:pointer; color:var(--text);
+      background:var(--surface); align-items:center; justify-content:center; color:var(--text);
     }
     .cert-grid{ grid-template-columns:1fr; }
     section{ padding:80px 0; }
@@ -492,6 +520,9 @@
 </style>
 </head>
 <body data-theme="dark">
+
+<!-- Custom Cursor Follower Element -->
+<div id="custom-cursor"></div>
 
 <!-- Kinetic Grid Canvas Background Layer -->
 <canvas id="kinetic-grid-canvas"></canvas>
@@ -892,6 +923,25 @@
   const navLinks = document.getElementById('navLinks');
   navToggle.addEventListener('click', () => navLinks.classList.toggle('open'));
   navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+
+  // ---- custom cursor follower ----
+  const cursor = document.getElementById('custom-cursor');
+  if (cursor && window.matchMedia('(pointer: fine)').matches) {
+    window.addEventListener('mousemove', (e) => {
+      cursor.style.transform = `translate(${e.clientX}px, ${e.clientY}px) translate(-50%, -50%)`;
+    });
+
+    document.querySelectorAll('a, button, .project-card, input, textarea, .social-btn').forEach(el => {
+      el.addEventListener('mouseenter', () => {
+        cursor.style.width = '32px';
+        cursor.style.height = '32px';
+      });
+      el.addEventListener('mouseleave', () => {
+        cursor.style.width = '16px';
+        cursor.style.height = '16px';
+      });
+    });
+  }
 
   // ---- typing animation ----
   const phrases = [
