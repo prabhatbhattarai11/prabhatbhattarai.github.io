@@ -143,7 +143,7 @@
   }
   .nav-inner {
     max-width: 1180px; margin: 0 auto; padding: 18px 28px;
-    display: flex; align-items: center; justify-between;
+    display: flex; align-items: center; justify-content: space-between;
   }
   .logo {
     font-family: 'JetBrains Mono', monospace;
@@ -349,7 +349,7 @@
   }
   .project-links a { color: var(--accent-purple); font-weight: 700; font-size: 14px; margin-right: 16px; }
 
-  /* Gallery Grid Section */
+  /* Gallery Grid Section with Image Fallback Styling */
   .gallery-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -363,6 +363,7 @@
     box-shadow: var(--shadow-soft);
     border: 1px solid var(--border-glass);
     transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    background: linear-gradient(135deg, #e0e7ff, #fae8ff);
   }
   .gallery-card img {
     width: 100%;
@@ -370,6 +371,7 @@
     object-fit: cover;
     object-position: center;
     transition: transform 0.5s ease;
+    display: block;
   }
   .gallery-card:hover {
     transform: translateY(-8px);
@@ -381,13 +383,14 @@
   .gallery-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(to top, rgba(15, 23, 42, 0.75) 0%, rgba(15, 23, 42, 0) 60%);
+    background: linear-gradient(to top, rgba(15, 23, 42, 0.8) 0%, rgba(15, 23, 42, 0) 60%);
     opacity: 0;
     transition: opacity 0.3s ease;
     display: flex;
     align-items: flex-end;
     padding: 24px;
     color: #ffffff;
+    z-index: 2;
   }
   .gallery-card:hover .gallery-overlay {
     opacity: 1;
@@ -396,6 +399,20 @@
     font-family: 'Plus Jakarta Sans', sans-serif;
     font-size: 15px;
     font-weight: 600;
+  }
+
+  /* Fallback placeholder when images are missing */
+  .img-fallback {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    color: var(--accent-purple);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    padding: 20px;
+    text-align: center;
   }
 
   /* Certificates Grid */
@@ -407,7 +424,7 @@
   }
 
   /* GitHub section */
-  .gh-panel { text-align: center; padding: 24px; overflow-x: auto; }
+  .gh-panel { text-align: center; padding: 28px; overflow-x: auto; min-height: 200px; display: flex; align-items: center; justify-content: center; }
   .gh-panel img { max-width: 100%; height: auto; border-radius: 12px; }
 
   /* Contact Form & Info */
@@ -453,6 +470,7 @@
     .hero-grid, .about-grid, .contact-grid, .project-grid, .timeline-grid, .skills-grid { grid-template-columns: 1fr; }
     .cert-grid { grid-template-columns: 1fr; }
     .form-row { grid-template-columns: 1fr; }
+    .nav-links { display: none; }
   }
 </style>
 </head>
@@ -712,56 +730,56 @@
 
     <div class="gallery-grid">
       <div class="gallery-card glass-card reveal">
-        <img src="WhatsApp Image 2026-08-30 at 3.20.14 PM (1).jpeg" alt="Prabhat on Scooter Hilltop" loading="lazy">
+        <img src="WhatsApp%20Image%202026-08-30%20at%203.20.14%20PM%20(1).jpeg" alt="Prabhat on Scooter Hilltop" loading="lazy" onerror="handleImgError(this, 'Riding through the hills 🌄')">
         <div class="gallery-overlay">
           <div class="gallery-caption">Riding through the hills 🌄</div>
         </div>
       </div>
 
       <div class="gallery-card glass-card reveal">
-        <img src="WhatsApp Image 2026-08-30 at 3.20.14 PM (2).jpeg" alt="Prabhat Formal Suit Mirror Selfie" loading="lazy">
+        <img src="WhatsApp%20Image%202026-08-30%20at%203.20.14%20PM%20(2).jpeg" alt="Prabhat Formal Suit Mirror Selfie" loading="lazy" onerror="handleImgError(this, 'Formal vibes at college 👔')">
         <div class="gallery-overlay">
           <div class="gallery-caption">Formal vibes at college 👔</div>
         </div>
       </div>
 
       <div class="gallery-card glass-card reveal">
-        <img src="WhatsApp Image 2026-08-30 at 3.20.14 PM (3).jpeg" alt="Prabhat Window Reflection" loading="lazy">
+        <img src="WhatsApp%20Image%202026-08-30%20at%203.20.14%20PM%20(3).jpeg" alt="Prabhat Window Reflection" loading="lazy" onerror="handleImgError(this, 'Reflections &amp; Lights ✨')">
         <div class="gallery-overlay">
           <div class="gallery-caption">Reflections &amp; Lights ✨</div>
         </div>
       </div>
 
       <div class="gallery-card glass-card reveal">
-        <img src="WhatsApp Image 2026-08-30 at 3.20.15 PM.jpeg" alt="Prabhat Pulsar Bike Trail" loading="lazy">
+        <img src="WhatsApp%20Image%202026-08-30%20at%203.20.15%20PM.jpeg" alt="Prabhat Pulsar Bike Trail" loading="lazy" onerror="handleImgError(this, 'Road trips &amp; Nature 🏍️')">
         <div class="gallery-overlay">
           <div class="gallery-caption">Road trips &amp; Nature 🏍️</div>
         </div>
       </div>
 
       <div class="gallery-card glass-card reveal">
-        <img src="WhatsApp Image 2026-08-30 at 3.20.15 PM (1).jpeg" alt="Prabhat Royal Enfield Bike" loading="lazy">
+        <img src="WhatsApp%20Image%202026-08-30%20at%203.20.15%20PM%20(1).jpeg" alt="Prabhat Royal Enfield Bike" loading="lazy" onerror="handleImgError(this, 'Classic rides ⚡')">
         <div class="gallery-overlay">
           <div class="gallery-caption">Classic rides ⚡</div>
         </div>
       </div>
 
       <div class="gallery-card glass-card reveal">
-        <img src="WhatsApp Image 2026-08-30 at 3.20.16 PM.jpeg" alt="Prabhat Open Green Field" loading="lazy">
+        <img src="WhatsApp%20Image%202026-08-30%20at%203.20.16%20PM.jpeg" alt="Prabhat Open Green Field" loading="lazy" onerror="handleImgError(this, 'Out in the open 🌿')">
         <div class="gallery-overlay">
           <div class="gallery-caption">Out in the open 🌿</div>
         </div>
       </div>
 
       <div class="gallery-card glass-card reveal">
-        <img src="WhatsApp Image 2026-08-30 at 3.20.16 PM (1).jpeg" alt="Prabhat Rooftop View" loading="lazy">
+        <img src="WhatsApp%20Image%202026-08-30%20at%203.20.16%20PM%20(1).jpeg" alt="Prabhat Rooftop View" loading="lazy" onerror="handleImgError(this, 'City rooftop view 🏙️')">
         <div class="gallery-overlay">
           <div class="gallery-caption">City rooftop view 🏙️</div>
         </div>
       </div>
 
       <div class="gallery-card glass-card reveal">
-        <img src="WhatsApp Image 2026-08-30 at 3.20.16 PM (2).jpeg" alt="Prabhat Bike Suit Pose" loading="lazy">
+        <img src="WhatsApp%20Image%202026-08-30%20at%203.20.16%20PM%20(2).jpeg" alt="Prabhat Bike Suit Pose" loading="lazy" onerror="handleImgError(this, 'Sunny day perspectives ☀️')">
         <div class="gallery-overlay">
           <div class="gallery-caption">Sunny day perspectives ☀️</div>
         </div>
@@ -790,7 +808,7 @@
     <h2 class="section-title" style="color: #0f172a; -webkit-text-fill-color: initial;">GitHub Contributions</h2>
     <p class="section-sub">Live developer activity graph pulled automatically from GitHub.</p>
     <div class="gh-panel glass-card reveal">
-      <img src="https://github-readme-activity-graph.vercel.app/graph?username=prabhatbhattarai11&theme=react-light&bg_color=ffffff&hide_border=true&area=true" alt="Prabhat's GitHub Contributions Graph" />
+      <img src="https://ghchart.rshah.org/6366f1/prabhatbhattarai11" alt="Prabhat's GitHub Contributions Graph" referrerpolicy="no-referrer" onerror="this.onerror=null; this.src='https://github-readme-activity-graph.vercel.app/graph?username=prabhatbhattarai11&theme=react-light&bg_color=ffffff&hide_border=true&area=true';" />
     </div>
   </div>
 </section>
@@ -875,6 +893,16 @@
 </footer>
 
 <script>
+  // Dynamic Image Error Handling
+  function handleImgError(img, caption) {
+    const parent = img.parentElement;
+    img.style.display = 'none';
+    const fallback = document.createElement('div');
+    fallback.className = 'img-fallback';
+    fallback.innerHTML = `<span style="font-size:28px; margin-bottom:8px;">📷</span><span>${caption}</span>`;
+    parent.appendChild(fallback);
+  }
+
   // Typing Effect
   const words = ["BIT Student", "Web Developer", "Cybersecurity Enthusiast", "AI Learner"];
   let wordIdx = 0; let charIdx = 0; let isDeleting = false;
