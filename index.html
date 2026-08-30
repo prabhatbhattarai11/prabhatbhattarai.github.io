@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
-  :root{
+  :root, [data-theme="dark"] {
     --bg:#0b1120;
     --bg-alt:#0e1626;
     --surface:#121b2e;
@@ -54,7 +54,7 @@
   html{scroll-behavior:smooth;}
 
   body{
-    background:var(--bg);
+    background:var(--bg) !important;
     color:var(--text);
     font-family:'Inter', system-ui, sans-serif;
     line-height:1.6;
@@ -424,7 +424,7 @@
     padding:24px; text-align:left;
   }
   .cert-icon{
-    width:40px;height:40px;border-radius:9px;
+    width:40px;height:40px;border-radius:99px;
     background:var(--accent-dim); color:var(--accent);
     display:flex; align-items:center; justify-content:center; margin-bottom:16px;
   }
@@ -814,13 +814,20 @@
 </section>
 
 <section id="contact">
-  <div class="wrap">
-    <div class="eyebrow">// 08 — contact</div>
-    <h2 class="section-title">Get in touch</h2>
-    <p class="section-sub">Have a project in mind, want to collaborate, or looking for an intern? Send a message.</p>
+  <div class="wrap contact-grid">
+    <div class="reveal">
+      <div class="eyebrow">// 08 — contact</div>
+      <h2 class="section-title">Get in touch</h2>
+      <p class="section-sub">Have a project in mind, want to collaborate, or looking for an intern? Send a message.</p>
 
-    <div class="contact-grid">
-      <div class="contact-info reveal">
+      <div class="contact-info">
+        <div class="row">
+          <div class="icon-box">@</div>
+          <div>
+            <h4>Email</h4>
+            <a href="mailto:contact@prabhatbhattarai.com.np">contact@prabhatbhattarai.com.np</a>
+          </div>
+        </div>
         <div class="row">
           <div class="icon-box">📍</div>
           <div>
@@ -828,148 +835,122 @@
             <p>Kathmandu, Nepal</p>
           </div>
         </div>
-        <div class="row">
-          <div class="icon-box">✉️</div>
-          <div>
-            <h4>Email</h4>
-            <a href="mailto:contact@prabhatbhattarai.com.np">contact@prabhatbhattarai.com.np</a>
-          </div>
-        </div>
-        <div class="row">
-          <div class="icon-box">⚡</div>
-          <div>
-            <h4>Status</h4>
-            <p>Available for freelance &amp; internships</p>
-          </div>
-        </div>
+      </div>
+    </div>
 
-        <div class="social-row">
-          <a href="https://github.com/prabhatbhattarai11" target="_blank" rel="noopener" class="social-btn" aria-label="GitHub">
-            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
-          </a>
-          <a href="https://linkedin.com" target="_blank" rel="noopener" class="social-btn" aria-label="LinkedIn">
-            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-          </a>
+    <form class="contact-form reveal" action="https://formspree.io/f/your-form-id" method="POST">
+      <div class="form-row">
+        <div class="field">
+          <label for="name">Your Name</label>
+          <input type="text" id="name" name="name" required placeholder="John Doe">
+        </div>
+        <div class="field">
+          <label for="email">Your Email</label>
+          <input type="email" id="email" name="email" required placeholder="john@example.com">
         </div>
       </div>
-
-      <form class="contact-form reveal" action="https://formspree.io/f/your-form-id" method="POST">
-        <div class="form-row">
-          <div class="field">
-            <label for="name">NAME</label>
-            <input type="text" id="name" name="name" placeholder="Your name" required />
-          </div>
-          <div class="field">
-            <label for="email">EMAIL</label>
-            <input type="email" id="email" name="email" placeholder="you@domain.com" required />
-          </div>
-        </div>
-        <div class="field full" style="margin-bottom:16px;">
-          <label for="subject">SUBJECT</label>
-          <input type="text" id="subject" name="subject" placeholder="Project, inquiry, or hello" />
-        </div>
-        <div class="field full" style="margin-bottom:20px;">
-          <label for="message">MESSAGE</label>
-          <textarea id="message" name="message" placeholder="Tell me what you're working on..." required></textarea>
-        </div>
-        <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center;">Send Message →</button>
-        <div class="form-note">* Replace the form action URL with your Formspree endpoint to receive messages directly.</div>
-      </form>
-    </div>
+      <div class="field full" style="margin-bottom:16px;">
+        <label for="message">Message</label>
+        <textarea id="message" name="message" required placeholder="Hey Prabhat, let's talk about..."></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center;">Send Message →</button>
+    </form>
   </div>
 </section>
 
 <footer>
   <div class="wrap">
-    <p>© <span id="year"></span> Prabhat Bhattarai. Designed &amp; built with intention.</p>
+    <p>© 2026 Prabhat Bhattarai. Hand-crafted in Kathmandu.</p>
   </div>
 </footer>
 
 <script>
-  // Theme Toggle (Dark / Light)
+  // Dynamic Typing Effect
+  const words = ["BIT Student", "Web Developer", "Cybersecurity Enthusiast", "AI Learner"];
+  let wordIdx = 0;
+  let charIdx = 0;
+  let isDeleting = false;
+  const target = document.getElementById("typeTarget");
+
+  function type() {
+    const currentWord = words[wordIdx];
+    if (isDeleting) {
+      target.textContent = currentWord.substring(0, charIdx - 1);
+      charIdx--;
+    } else {
+      target.textContent = currentWord.substring(0, charIdx + 1);
+      charIdx++;
+    }
+
+    let typeSpeed = isDeleting ? 40 : 80;
+
+    if (!isDeleting && charIdx === currentWord.length) {
+      typeSpeed = 2000;
+      isDeleting = true;
+    } else if (isDeleting && charIdx === 0) {
+      isDeleting = false;
+      wordIdx = (wordIdx + 1) % words.length;
+      typeSpeed = 500;
+    }
+
+    setTimeout(type, typeSpeed);
+  }
+  document.addEventListener("DOMContentLoaded", type);
+
+  // Custom Cursor Movement
+  const cursor = document.getElementById("custom-cursor");
+  window.addEventListener("mousemove", (e) => {
+    cursor.style.left = e.clientX + "px";
+    cursor.style.top = e.clientY + "px";
+  });
+
+  // Reveal animations on scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting) {
+        entry.target.classList.add('in');
+        // Animate skill bars
+        if(entry.target.hasAttribute('data-skills')) {
+          entry.target.querySelectorAll('.skill-row').forEach(row => {
+            const level = row.getAttribute('data-level');
+            row.querySelector('.bar-fill').style.width = level + '%';
+          });
+        }
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // Mobile menu toggle
+  const navToggle = document.getElementById('navToggle');
+  const navLinks = document.getElementById('navLinks');
+  if(navToggle) {
+    navToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
+    });
+  }
+
+  // Dark/Light Theme Switcher Script
   const themeToggle = document.getElementById('themeToggle');
   const iconMoon = document.getElementById('iconMoon');
   const iconSun = document.getElementById('iconSun');
 
   themeToggle.addEventListener('click', () => {
-    const currentTheme = document.body.getAttribute('data-theme');
+    const currentTheme = document.documentElement.getAttribute('data-theme');
     const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-    document.body.setAttribute('data-theme', newTheme);
-    iconMoon.style.display = newTheme === 'light' ? 'none' : 'block';
-    iconSun.style.display = newTheme === 'light' ? 'block' : 'none';
-  });
-
-  // Mobile Nav Toggle
-  const navToggle = document.getElementById('navToggle');
-  const navLinks = document.getElementById('navLinks');
-  navToggle.addEventListener('click', () => {
-    navLinks.classList.toggle('open');
-  });
-
-  // Custom Cursor
-  const cursor = document.getElementById('custom-cursor');
-  document.addEventListener('mousemove', (e) => {
-    cursor.style.left = e.clientX + 'px';
-    cursor.style.top = e.clientY + 'px';
-  });
-
-  // Dynamic Typing Effect
-  const phrases = ["BIT Student", "Full-Stack Developer", "Cybersecurity Enthusiast", "Problem Solver"];
-  let phraseIdx = 0, charIdx = 0, isDeleting = false;
-  const target = document.getElementById('typeTarget');
-
-  function typeEffect() {
-    const current = phrases[phraseIdx];
-    if (isDeleting) {
-      target.textContent = current.substring(0, charIdx - 1);
-      charIdx--;
+    
+    document.documentElement.setAttribute('data-theme', newTheme);
+    
+    if(newTheme === 'light') {
+      iconMoon.style.display = 'none';
+      iconSun.style.display = 'block';
     } else {
-      target.textContent = current.substring(0, charIdx + 1);
-      charIdx++;
+      iconMoon.style.display = 'block';
+      iconSun.style.display = 'none';
     }
+  });
+</script>
 
-    let speed = isDeleting ? 40 : 80;
-    if (!isDeleting && charIdx === current.length) {
-      speed = 1800;
-      isDeleting = true;
-    } else if (isDeleting && charIdx === 0) {
-      isDeleting = false;
-      phraseIdx = (phraseIdx + 1) % phrases.length;
-      speed = 400;
-    }
-    setTimeout(typeEffect, speed);
-  }
-  typeEffect();
-
-  // Scroll Reveal and Skill Bar Animation
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('in');
-        if (entry.target.hasAttribute('data-skills')) {
-          const rows = entry.target.querySelectorAll('.skill-row');
-          rows.forEach(row => {
-            const level = row.getAttribute('data-level');
-            const fill = row.querySelector('.bar-fill');
-            fill.style.width = level + '%';
-          });
-        }
-      }
-    });
-  }, { threshold: 0.15 });
-
-  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-  // Kinetic Canvas Background Animation
-  const canvas = document.getElementById('kinetic-grid-canvas');
-  const ctx = canvas.getContext('2d');
-  let width, height;
-
-  function resize() {
-    width = canvas.width = window.innerWidth;
-    height = canvas.height = window.innerHeight;
-  }
-  window.addEventListener('resize', resize);
-  resize();
-
-  let mouse = { x: width / 2, y: height / 2 };
+</body>
+</html>
