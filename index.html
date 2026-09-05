@@ -6,9 +6,6 @@
 <meta name="google-site-verification" content="wybnpxAEYlyWlQyLxEfisNkFOprrp9yEgQ1Y5R7AC50" />
 <title>Prabhat Bhattarai — BIT Student &amp; Developer</title>
 <link rel="icon" type="image/png" href="favicon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 <style>
   :root {
@@ -169,8 +166,8 @@
     display: flex; align-items: center; gap: 7px; white-space: nowrap;
     animation: badgeFloat 4s ease-in-out infinite alternate;
   }
-  .badge-js  { animation-delay: -1.5s; }
-  .badge-seo { animation-delay: -3s; }
+  .badge-js  { top: 10%; left: -20px; animation-delay: -1.5s; }
+  .badge-seo { bottom: 15%; right: -20px; animation-delay: -3s; }
   @keyframes badgeFloat {
     0%   { transform: translateY(0px); }
     100% { transform: translateY(-8px); }
@@ -178,10 +175,10 @@
   .badge-icon { font-size: 16px; }
 
   /* Terminal */
-  .terminal { background: rgba(255, 255, 255, 0.75); backdrop-filter: blur(20px); border: 1px solid var(--border-glass); border-radius: 24px; box-shadow: var(--shadow-soft); overflow: hidden; }
+  .terminal { background: rgba(255, 255, 255, 0.75); backdrop-filter: blur(20px); border: 1px solid var(--border-glass); border-radius: 24px; box-shadow: var(--shadow-soft); overflow: hidden; margin-top: 40px; }
   .term-bar { display: flex; align-items: center; gap: 8px; padding: 16px 20px; background: rgba(255, 255, 255, 0.5); border-bottom: 1px solid rgba(226, 232, 240, 0.6); }
   .term-dot { width: 11px; height: 11px; border-radius: 50%; }
-  .term-body { padding: 26px; font-family: 'JetBrains Mono', monospace; font-size: 14px; color: #1e293b; min-height: 270px; }
+  .term-body { padding: 26px; font-family: 'JetBrains Mono', monospace; font-size: 14px; color: #1e293b; min-height: 200px; }
   .term-body .ln { margin-bottom: 12px; }
   .term-body .prompt { color: var(--accent-purple); font-weight: 700; }
   .term-body .comment { color: #94a3b8; }
@@ -234,10 +231,6 @@
   /* Certificates */
   .cert-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
   .cert-empty { border: 2px dashed rgba(99, 102, 241, 0.2); border-radius: var(--radius); padding: 30px; text-align: center; color: var(--text-muted); font-size: 14px; font-family: 'JetBrains Mono', monospace; background: rgba(255,255,255,0.4); }
-
-  /* GitHub */
-  .gh-panel { text-align: center; padding: 28px; overflow-x: auto; min-height: 200px; display: flex; align-items: center; justify-content: center; }
-  .gh-panel img { max-width: 100%; height: auto; border-radius: 12px; }
 
   /* Contact */
   .contact-grid { display: grid; grid-template-columns: .85fr 1.15fr; gap: 50px; }
@@ -331,14 +324,6 @@
     mix-blend-mode: screen;
   }
 
-  .float-badge {
-    will-change: transform;
-  }
-
-  .badge-web {
-    animation: badgeFloatWeb 4s ease-in-out infinite alternate;
-  }
-
   @keyframes heroPhotoEntrance {
     0% {
       opacity: 0;
@@ -363,11 +348,6 @@
     0%, 55% { transform: translateX(-130%) rotate(10deg); opacity: 0; }
     65% { opacity: 1; }
     82%, 100% { transform: translateX(130%) rotate(10deg); opacity: 0; }
-  }
-
-  @keyframes badgeFloatWeb {
-    0% { transform: translateY(0) rotate(0deg); }
-    100% { transform: translateY(-11px) rotate(1deg); }
   }
 
   /* ===== Full Page Loader ===== */
@@ -476,7 +456,6 @@
       transition: none !important;
     }
   }
-
 </style>
 </head>
 <body>
@@ -511,7 +490,7 @@
   </div>
 </header>
 
-<section class="hero" id="hero">
+<section class="hero">
   <div class="wrap hero-grid">
     <div>
       <div class="hero-kicker"><span class="live-dot"></span>OPEN TO FREELANCE &amp; INTERNSHIP WORK</div>
@@ -520,24 +499,23 @@
       <p class="desc">BIT student at Bagmati University (Janamaitri Campus), Kathmandu — currently in my 2nd semester and building real software on the side: web apps, a bit of AI, and a growing interest in cybersecurity.</p>
       <div class="btn-row">
         <a href="#projects" class="btn btn-primary">View Projects →</a>
-        <a href="#contact" class="btn btn-ghost">Get In Touch</a>
+        <a href="resume.pdf" class="btn btn-ghost" target="_blank" rel="noopener">↓ View Resume</a>
       </div>
     </div>
 
-    <!-- Hero Photo -->
+    <!-- Hero Photo with circular gradient ring + floating badges -->
     <div class="hero-photo-col reveal">
       <div class="hero-photo-wrap">
         <div class="hero-photo-ring">
-          <img src="profile.jpg" alt="Prabhat Bhattarai" class="hero-photo-img">
+          <img class="hero-photo-img" src="avatar.jpg" alt="Prabhat Bhattarai" onerror="this.src='https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80'">
         </div>
-        <div class="float-badge badge-js" style="top: 10%; left: -20px;">
-          <span class="badge-icon">⚡</span> Full-Stack Dev
+        <div class="float-badge badge-js">
+          <span class="badge-icon">⚡</span>
+          <span>Full-Stack Dev</span>
         </div>
-        <div class="float-badge badge-seo" style="bottom: 15%; right: -20px;">
-          <span class="badge-icon">🎓</span> BIT Student
-        </div>
-        <div class="float-badge badge-web" style="top: 65%; left: -25px;">
-          <span class="badge-icon">🚀</span> Web &amp; AI Enthusiast
+        <div class="float-badge badge-seo">
+          <span class="badge-icon">🔒</span>
+          <span>Cybersec Enthusiast</span>
         </div>
       </div>
     </div>
@@ -545,466 +523,312 @@
 </section>
 
 <!-- About Section -->
-<section id="about">
-  <div class="wrap">
-    <div class="eyebrow">DISCOVER</div>
-    <h2 class="section-title">About Me</h2>
-    <p class="section-sub">Crafting clean code and intuitive digital experiences from Kathmandu, Nepal.</p>
-    
-    <div class="about-grid">
-      <div class="stat-card glass-card reveal">
-        <h3>Quick Stats</h3>
-        <div class="stat-grid">
-          <div>
-            <div class="stat-num">2nd</div>
-            <div class="stat-label">Semester BIT</div>
-          </div>
-          <div>
-            <div class="stat-num">10+</div>
-            <div class="stat-label">Projects Built</div>
-          </div>
-          <div>
-            <div class="stat-num">100%</div>
-            <div class="stat-label">Dedication</div>
-          </div>
-          <div>
-            <div class="stat-num">24/7</div>
-            <div class="stat-label">Learning Mindset</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="about-text reveal">
-        <p>Hello! I'm <strong>Prabhat Bhattarai</strong>, an enthusiastic Bachelor in Information Technology (BIT) student at Janamaitri Multiple Campus (Bagmati University) in Kathmandu.</p>
-        <p>I focus on building modern, responsive web applications, experimenting with artificial intelligence, and learning cybersecurity fundamentals. I enjoy bridging the gap between design and scalable backend logic.</p>
-      </div>
-    </div>
-
-    <!-- Terminal Feature -->
-    <div style="margin-top: 60px;">
-      <div class="terminal reveal">
-        <div class="term-bar">
-          <div class="term-dot" style="background:#ef4444"></div>
-          <div class="term-dot" style="background:#f59e0b"></div>
-          <div class="term-dot" style="background:#10b981"></div>
-          <span class="mono" style="font-size:12px; color:#64748b; margin-left:8px;">prabhat@dev:~</span>
-        </div>
-        <div class="term-body">
-          <div class="ln"><span class="prompt">$</span> cat profile.json</div>
-          <div class="ln">{</div>
-          <div class="ln">&nbsp;&nbsp;<span class="key">"name"</span>: <span class="str">"Prabhat Bhattarai"</span>,</div>
-          <div class="ln">&nbsp;&nbsp;<span class="key">"role"</span>: <span class="str">"BIT Student &amp; Full-Stack Developer"</span>,</div>
-          <div class="ln">&nbsp;&nbsp;<span class="key">"location"</span>: <span class="str">"Kathmandu, Nepal"</span>,</div>
-          <div class="ln">&nbsp;&nbsp;<span class="key">"college"</span>: <span class="str">"Janamaitri Multiple Campus (TU/BU)"</span>,</div>
-          <div class="ln">&nbsp;&nbsp;<span class="key">"interests"</span>: [<span class="str">"Web Dev"</span>, <span class="str">"AI/ML"</span>, <span class="str">"Cybersecurity"</span>],</div>
-          <div class="ln">&nbsp;&nbsp;<span class="key">"status"</span>: <span class="str">"Open for Internships &amp; Freelance"</span></div>
-          <div class="ln">}</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Experience & Education -->
-<section id="experience">
-  <div class="wrap">
-    <div class="eyebrow">MY JOURNEY</div>
-    <h2 class="section-title">Education &amp; Experience</h2>
-    <p class="section-sub">A timeline of my academic background and developer journey.</p>
-
-    <div class="timeline-grid">
-      <div class="glass-card panel reveal">
-        <h3 style="margin-bottom: 24px;">Education</h3>
-        <div class="timeline">
-          <div class="t-item">
-            <span class="t-status">2024 — PRESENT</span>
-            <h4>Bachelor in Information Technology (BIT)</h4>
-            <div class="t-sub">Janamaitri Multiple Campus (Bagmati University / TU)</div>
-            <ul>
-              <li>Currently in 2nd Semester</li>
-              <li>Focusing on Data Structures, OOP, Web Technologies &amp; Computer Architecture</li>
-            </ul>
-          </div>
-          <div class="t-item">
-            <span class="t-status">2021 — 2023</span>
-            <h4>High School (+2 Science)</h4>
-            <div class="t-sub">Kathmandu, Nepal</div>
-            <ul>
-              <li>Graduated with focus on Mathematics and Physics</li>
-              <li>Discovered passion for programming &amp; web technology</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <div class="glass-card panel reveal">
-        <h3 style="margin-bottom: 24px;">Experience &amp; Milestones</h3>
-        <div class="timeline">
-          <div class="t-item">
-            <span class="t-status">2024 — PRESENT</span>
-            <h4>Freelance Web Developer</h4>
-            <div class="t-sub">Self-Employed</div>
-            <ul>
-              <li>Building custom responsive websites for local clients</li>
-              <li>Focusing on fast performance, clean UI, and SEO basics</li>
-            </ul>
-          </div>
-          <div class="t-item">
-            <span class="t-status">2023 — PRESENT</span>
-            <h4>Open Source &amp; Independent Projects</h4>
-            <div class="t-sub">Personal Development</div>
-            <ul>
-              <li>Developed web utilities, portfolio sites, and experimental scripts</li>
-              <li>Exploring cybersecurity tools and Linux system administration</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Skills -->
-<section id="skills">
-  <div class="wrap">
-    <div class="eyebrow">ABILITIES</div>
-    <h2 class="section-title">Skills &amp; Toolbelt</h2>
-    <p class="section-sub">Technologies and tools I work with daily.</p>
-
-    <div class="glass-card panel reveal">
-      <div class="skills-grid">
+<section id="about" class="wrap reveal">
+  <div class="eyebrow">// 01 — WHOAMI</div>
+  <h2 class="section-title">Still early, already building.</h2>
+  <div class="about-grid">
+    <div class="glass-card stat-card">
+      <div class="mono" style="font-size:13px; color:var(--accent-purple); font-weight:700;">whoami.sh</div>
+      <div class="stat-grid">
         <div>
-          <div class="skill-row">
-            <div class="skill-top"><span>HTML5 &amp; CSS3 / Tailwind</span><span>90%</span></div>
-            <div class="bar-track"><div class="bar-fill" style="width: 90%;"></div></div>
-          </div>
-          <div class="skill-row">
-            <div class="skill-top"><span>JavaScript (ES6+) / React</span><span>85%</span></div>
-            <div class="bar-track"><div class="bar-fill" style="width: 85%;"></div></div>
-          </div>
-          <div class="skill-row">
-            <div class="skill-top"><span>Node.js / Express</span><span>75%</span></div>
-            <div class="bar-track"><div class="bar-fill" style="width: 75%;"></div></div>
-          </div>
+          <div class="stat-num">2nd</div>
+          <div class="stat-label">Semester, BIT</div>
         </div>
         <div>
-          <div class="skill-row">
-            <div class="skill-top"><span>Python / C / C++</span><span>80%</span></div>
-            <div class="bar-track"><div class="bar-fill" style="width: 80%;"></div></div>
-          </div>
-          <div class="skill-row">
-            <div class="skill-top"><span>SQL &amp; Database Basics</span><span>75%</span></div>
-            <div class="bar-track"><div class="bar-fill" style="width: 75%;"></div></div>
-          </div>
-          <div class="skill-row">
-            <div class="skill-top"><span>Git &amp; GitHub / Linux</span><span>85%</span></div>
-            <div class="bar-track"><div class="bar-fill" style="width: 85%;"></div></div>
-          </div>
+          <div class="stat-num">2+</div>
+          <div class="stat-label">Active Projects</div>
+        </div>
+        <div>
+          <div class="stat-num">4</div>
+          <div class="stat-label">Core Interests</div>
+        </div>
+        <div>
+          <div class="stat-num">∞</div>
+          <div class="stat-label">Things to Learn</div>
         </div>
       </div>
+    </div>
+    <div class="about-text">
+      <p>I'm a Bachelor of Information Technology student at Bagmati University (Janamaitri Campus), working through core CS theory while spending most of my free time shipping modern web applications.</p>
+      <p>Right now that means <strong>Karigar</strong>, a freelance marketplace app built for Nepal featuring a React frontend, Express.js backend, Postgres schema, and Khalti payment integration.</p>
+      <p>Outside of coursework, I'm drawn toward AI and cybersecurity — understanding how systems function and break, while actively taking on freelance client work.</p>
+    </div>
+  </div>
 
-      <div class="toolbelt">
-        <span class="chip">JavaScript</span>
-        <span class="chip">React</span>
-        <span class="chip">Node.js</span>
-        <span class="chip">Express</span>
-        <span class="chip">Python</span>
-        <span class="chip">HTML5</span>
-        <span class="chip">CSS3</span>
-        <span class="chip">TailwindCSS</span>
-        <span class="chip">Git</span>
-        <span class="chip">GitHub</span>
-        <span class="chip">MySQL</span>
-        <span class="chip">MongoDB</span>
-        <span class="chip">REST APIs</span>
-        <span class="chip">Linux</span>
-        <span class="chip">Cybersecurity</span>
+  <div class="glass-card terminal reveal">
+    <div class="term-bar">
+      <div class="term-dot" style="background:#ef4444;"></div>
+      <div class="term-dot" style="background:#f59e0b;"></div>
+      <div class="term-dot" style="background:#10b981;"></div>
+      <span class="mono" style="font-size:12px; color:var(--text-muted); margin-left:8px;">prabhat@dev-box:~</span>
+    </div>
+    <div class="term-body">
+      <div class="ln"><span class="prompt">$</span> cat dev_profile.json</div>
+      <div class="ln">{</div>
+      <div class="ln">&nbsp;&nbsp;<span class="key">"name"</span>: <span class="str">"Prabhat Bhattarai"</span>,</div>
+      <div class="ln">&nbsp;&nbsp;<span class="key">"role"</span>: <span class="str">"BIT Student & Full Stack Web Developer"</span>,</div>
+      <div class="ln">&nbsp;&nbsp;<span class="key">"location"</span>: <span class="str">"Kathmandu, Nepal"</span>,</div>
+      <div class="ln">&nbsp;&nbsp;<span class="key">"building"</span>: <span class="str">"Karigar — Freelance Marketplace for Nepal"</span>,</div>
+      <div class="ln">&nbsp;&nbsp;<span class="key">"status"</span>: <span class="str">"Open for Freelance & Internship"</span></div>
+      <div class="ln">}</div>
+    </div>
+  </div>
+</section>
+
+<!-- Experience Section -->
+<section id="experience" class="wrap reveal">
+  <div class="eyebrow">// 02 — EXPERIENCE &amp; EDUCATION</div>
+  <h2 class="section-title">Where I've been spending time.</h2>
+  <p class="section-sub">A mix of academic learning and hands-on client / personal software development.</p>
+
+  <div class="timeline-grid">
+    <div class="timeline">
+      <div class="t-item">
+        <span class="t-status">2024 — PRESENT</span>
+        <h4>Video Editor &amp; Web Developer</h4>
+        <div class="t-sub">Smart Chiya — Kathmandu, Nepal</div>
+        <ul>
+          <li>Produced and edited video content optimizing visual pacing for social engagement.</li>
+          <li>Supported digital assets management and online brand presence.</li>
+          <li>Collaborated on visual concepts to improve target audience strategy.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="timeline">
+      <div class="t-item">
+        <span class="t-status">2025 — PRESENT</span>
+        <h4>Bachelor of Information Technology (BIT)</h4>
+        <div class="t-sub">Bagmati University (Janamaitri Campus) — Kathmandu</div>
+        <ul>
+          <li>Currently in 2nd semester covering mathematics, programming fundamentals, and core CS theory.</li>
+          <li>Building full-stack web applications and exploring cybersecurity fundamentals alongside coursework.</li>
+        </ul>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Projects -->
-<section id="projects">
-  <div class="wrap">
-    <div class="eyebrow">PORTFOLIO</div>
-    <h2 class="section-title">Featured Projects</h2>
-    <p class="section-sub">Selected personal and academic projects I've built.</p>
+<!-- Skills Section -->
+<section id="skills" class="wrap reveal">
+  <div class="eyebrow">// 03 — SKILLS &amp; STACK</div>
+  <h2 class="section-title">What I work with.</h2>
+  <p class="section-sub">Technologies and tools I use daily to turn ideas into digital products.</p>
 
-    <div class="project-grid">
-      <div class="glass-card project-card reveal">
-        <div class="project-media">
-          <span>// WEB APPLICATION</span>
+  <div class="glass-card panel">
+    <div class="skills-grid">
+      <div>
+        <div class="skill-row">
+          <div class="skill-top"><span>HTML / CSS / JavaScript</span><span>80%</span></div>
+          <div class="bar-track"><div class="bar-fill" style="width: 80%;"></div></div>
         </div>
-        <div class="project-body">
-          <div class="project-tag">Full-Stack</div>
-          <h3>College Portal System</h3>
-          <p>A web portal for students to manage schedules, view announcements, and access learning materials efficiently.</p>
-          <div class="stack-row">
-            <span>React</span>
-            <span>Node.js</span>
-            <span>MongoDB</span>
-          </div>
-          <div class="project-links">
-            <a href="#">Live Demo →</a>
-            <a href="#">Source Code →</a>
-          </div>
+        <div class="skill-row">
+          <div class="skill-top"><span>React</span><span>65%</span></div>
+          <div class="bar-track"><div class="bar-fill" style="width: 65%;"></div></div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-top"><span>Node.js / Express</span><span>55%</span></div>
+          <div class="bar-track"><div class="bar-fill" style="width: 55%;"></div></div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-top"><span>PostgreSQL / SQL</span><span>50%</span></div>
+          <div class="bar-track"><div class="bar-fill" style="width: 50%;"></div></div>
         </div>
       </div>
-
-      <div class="glass-card project-card reveal">
-        <div class="project-media">
-          <span>// AI EXPERIMENT</span>
+      <div>
+        <div class="skill-row">
+          <div class="skill-top"><span>Python</span><span>70%</span></div>
+          <div class="bar-track"><div class="bar-fill" style="width: 70%;"></div></div>
         </div>
-        <div class="project-body">
-          <div class="project-tag">AI &amp; Web</div>
-          <h3>Smart Content Assistant</h3>
-          <p>An AI-powered web utility that generates concise summaries and key insights from lengthy articles.</p>
-          <div class="stack-row">
-            <span>Python</span>
-            <span>Flask</span>
-            <span>OpenAI API</span>
-          </div>
-          <div class="project-links">
-            <a href="#">Live Demo →</a>
-            <a href="#">Source Code →</a>
-          </div>
+        <div class="skill-row">
+          <div class="skill-top"><span>Cybersecurity Fundamentals</span><span>40%</span></div>
+          <div class="bar-track"><div class="bar-fill" style="width: 40%;"></div></div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-top"><span>AI / Machine Learning</span><span>35%</span></div>
+          <div class="bar-track"><div class="bar-fill" style="width: 35%;"></div></div>
+        </div>
+        <div class="skill-row">
+          <div class="skill-top"><span>Git &amp; GitHub</span><span>75%</span></div>
+          <div class="bar-track"><div class="bar-fill" style="width: 75%;"></div></div>
         </div>
       </div>
+    </div>
 
-      <div class="glass-card project-card reveal">
-        <div class="project-media">
-          <span>// UI / FRONTEND</span>
-        </div>
-        <div class="project-body">
-          <div class="project-tag">Frontend</div>
-          <h3>Modern Developer Portfolio</h3>
-          <p>A fast, responsive portfolio site featuring smooth CSS animations, glassmorphism UI, and dark accent design.</p>
-          <div class="stack-row">
-            <span>HTML5</span>
-            <span>CSS3</span>
-            <span>JavaScript</span>
-          </div>
-          <div class="project-links">
-            <a href="#">Live Demo →</a>
-            <a href="#">Source Code →</a>
-          </div>
-        </div>
+    <div class="toolbelt">
+      <span class="chip">React</span>
+      <span class="chip">Express.js</span>
+      <span class="chip">Node.js</span>
+      <span class="chip">PostgreSQL</span>
+      <span class="chip">JavaScript (ES6+)</span>
+      <span class="chip">Python</span>
+      <span class="chip">Git</span>
+      <span class="chip">JWT</span>
+      <span class="chip">Khalti API</span>
+      <span class="chip">Linux</span>
+    </div>
+  </div>
+</section>
+
+<!-- Projects Section -->
+<section id="projects" class="wrap reveal">
+  <div class="eyebrow">// 04 — FEATURED WORK</div>
+  <h2 class="section-title">Things I've built.</h2>
+  <p class="section-sub">A showcase of full-stack applications and software experiments.</p>
+
+  <div class="project-grid">
+    <div class="glass-card project-card">
+      <div class="project-media">
+        <span>🛠️ KARIGAR PREVIEW</span>
       </div>
-
-      <div class="glass-card project-card reveal">
-        <div class="project-media">
-          <span>// CYBERSECURITY</span>
+      <div class="project-body">
+        <span class="project-tag">Full-Stack Application</span>
+        <h3>Karigar — Freelance Marketplace</h3>
+        <p>A freelance marketplace app tailored for Nepal, connecting local skilled workers with clients featuring auth, database, and local payments.</p>
+        <div class="stack-row">
+          <span>React</span>
+          <span>Express.js</span>
+          <span>PostgreSQL</span>
+          <span>JWT</span>
+          <span>Khalti Sandbox</span>
         </div>
-        <div class="project-body">
-          <div class="project-tag">Security &amp; Tools</div>
-          <h3>Network Recon Script</h3>
-          <p>A Python-based CLI tool designed to perform light network ping sweeps and basic port scanning for educational use.</p>
-          <div class="stack-row">
-            <span>Python</span>
-            <span>Sockets</span>
-            <span>Linux</span>
-          </div>
-          <div class="project-links">
-            <a href="#">Source Code →</a>
-          </div>
+        <div class="project-links">
+          <a href="https://github.com/prabhatb" target="_blank" rel="noopener">GitHub ↗</a>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Certificates -->
-<section id="certificates">
-  <div class="wrap">
-    <div class="eyebrow">ACCOMPLISHMENTS</div>
-    <h2 class="section-title">Certifications &amp; Learning</h2>
-    <p class="section-sub">Courses and certifications completed along the way.</p>
+<!-- Certificates Section -->
+<section id="certificates" class="wrap reveal">
+  <div class="eyebrow">// 05 — CERTIFICATIONS</div>
+  <h2 class="section-title">Certificates &amp; Coursework.</h2>
+  <p class="section-sub">Add your certifications here as you accomplish new milestones.</p>
 
-    <div class="cert-grid reveal">
-      <div class="glass-card cert-empty">
-        🎓 <strong>Full-Stack Web Development</strong><br>
-        <span style="font-size:12px; margin-top:6px; display:inline-block;">Online Certification / 2024</span>
-      </div>
-      <div class="glass-card cert-empty">
-        💻 <strong>Python Programming Essentials</strong><br>
-        <span style="font-size:12px; margin-top:6px; display:inline-block;">Self-Paced Course / 2023</span>
-      </div>
-      <div class="glass-card cert-empty">
-        🛡️ <strong>Cybersecurity Fundamentals</strong><br>
-        <span style="font-size:12px; margin-top:6px; display:inline-block;">In Progress / 2026</span>
-      </div>
-    </div>
+  <div class="cert-grid">
+    <div class="cert-empty">+ Add Certificate</div>
+    <div class="cert-empty">+ Add Certificate</div>
+    <div class="cert-empty">+ Add Certificate</div>
   </div>
 </section>
 
-<!-- GitHub Panel -->
-<section>
-  <div class="wrap">
-    <div class="glass-card gh-panel reveal">
-      <div style="padding: 20px;">
-        <h3 style="margin-bottom: 12px; font-family:'JetBrains Mono', monospace;">🐙 GitHub Activity</h3>
-        <p style="color: var(--text-muted); font-size: 14px; margin-bottom: 20px;">Check out my code repositories and contributions on GitHub.</p>
-        <a href="https://github.com" target="_blank" rel="noopener" class="btn btn-primary">Visit My GitHub Profile →</a>
+<!-- Contact Section -->
+<section id="contact" class="wrap reveal">
+  <div class="eyebrow">// 06 — GET IN TOUCH</div>
+  <h2 class="section-title">Let's build something together.</h2>
+  <p class="section-sub">Have an idea, project, or opportunity? Drop me a message below.</p>
+
+  <div class="contact-grid">
+    <div class="contact-info">
+      <div class="row">
+        <div class="icon-box">🏛️</div>
+        <div>
+          <div style="font-size:12px; color:var(--text-muted); font-family:'JetBrains Mono', monospace;">UNIVERSITY</div>
+          <div style="font-weight:700;">Bagmati University (Janamaitri Campus)</div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="icon-box">📍</div>
+        <div>
+          <div style="font-size:12px; color:var(--text-muted); font-family:'JetBrains Mono', monospace;">LOCATION</div>
+          <div style="font-weight:700;">Kathmandu, Nepal</div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="icon-box">✉️</div>
+        <div>
+          <div style="font-size:12px; color:var(--text-muted); font-family:'JetBrains Mono', monospace;">EMAIL</div>
+          <a href="mailto:prabhatbhattarai456@gmail.com" style="font-weight:700;">prabhatbhattarai456@gmail.com</a>
+        </div>
       </div>
     </div>
+
+    <form class="glass-card contact-form" action="#" method="POST" onsubmit="event.preventDefault(); alert('Thank you for reaching out!');">
+      <div class="form-row">
+        <div class="field">
+          <label for="name">YOUR NAME</label>
+          <input type="text" id="name" required placeholder="John Doe">
+        </div>
+        <div class="field">
+          <label for="email">YOUR EMAIL</label>
+          <input type="email" id="email" required placeholder="john@example.com">
+        </div>
+      </div>
+      <div class="field full" style="margin-bottom:16px;">
+        <label for="message">MESSAGE</label>
+        <textarea id="message" required placeholder="Tell me about your project..."></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary">Send Message →</button>
+    </form>
   </div>
 </section>
 
-<!-- Contact -->
-<section id="contact">
-  <div class="wrap">
-    <div class="eyebrow">GET IN TOUCH</div>
-    <h2 class="section-title">Let's Work Together</h2>
-    <p class="section-sub">Have a project in mind or an internship opportunity? Reach out!</p>
-
-    <div class="contact-grid">
-      <div class="contact-info reveal">
-        <div class="row">
-          <div class="icon-box">📍</div>
-          <div>
-            <div style="font-size:12px; font-family:'JetBrains Mono', monospace; color:var(--text-muted);">LOCATION</div>
-            <strong>Kathmandu, Nepal</strong>
-          </div>
-        </div>
-        <div class="row">
-          <div class="icon-box">✉️</div>
-          <div>
-            <div style="font-size:12px; font-family:'JetBrains Mono', monospace; color:var(--text-muted);">EMAIL</div>
-            <strong><a href="mailto:contact@prabhat.dev">contact@prabhat.dev</a></strong>
-          </div>
-        </div>
-        <div class="row">
-          <div class="icon-box">💼</div>
-          <div>
-            <div style="font-size:12px; font-family:'JetBrains Mono', monospace; color:var(--text-muted);">AVAILABILITY</div>
-            <strong>Freelance &amp; Internships</strong>
-          </div>
-        </div>
-      </div>
-
-      <form class="contact-form glass-card reveal" id="contactForm">
-        <div class="form-row">
-          <div class="field">
-            <label for="name">Your Name</label>
-            <input type="text" id="name" placeholder="John Doe" required>
-          </div>
-          <div class="field">
-            <label for="email">Your Email</label>
-            <input type="email" id="email" placeholder="john@example.com" required>
-          </div>
-        </div>
-        <div class="form-row">
-          <div class="field full">
-            <label for="subject">Subject</label>
-            <input type="text" id="subject" placeholder="Project Inquiry / Internship" required>
-          </div>
-        </div>
-        <div class="form-row">
-          <div class="field full">
-            <label for="message">Message</label>
-            <textarea id="message" placeholder="Tell me about your project..." required></textarea>
-          </div>
-        </div>
-        <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center;">Send Message 🚀</button>
-      </form>
-    </div>
-  </div>
-</section>
-
-<!-- Footer -->
 <footer>
-  <div class="wrap">
-    <p>© <span id="year"></span> Prabhat Bhattarai. Built with passion &amp; code.</p>
-  </div>
+  <p>© 2026 Prabhat Bhattarai. Hand-crafted in Kathmandu.</p>
 </footer>
 
-<!-- Page Logic & Script -->
 <script>
-  // Set Footer Year
-  document.getElementById('year').textContent = new Date().getFullYear();
-
-  // Loader Progress Animation
+  // Loader sequence
   window.addEventListener('load', () => {
+    const progress = document.getElementById('loaderProgress');
+    const status = document.getElementById('loaderStatus');
     const loader = document.getElementById('pageLoader');
-    const progressBar = document.getElementById('loaderProgress');
-    const loaderStatus = document.getElementById('loaderStatus');
     
-    let progress = 0;
-    const interval = setInterval(() => {
-      progress += 20;
-      if (progressBar) progressBar.style.width = progress + '%';
-      if (progress >= 100) {
-        clearInterval(interval);
-        if (loaderStatus) loaderStatus.textContent = 'READY!';
-        setTimeout(() => {
-          if (loader) loader.classList.add('hide');
-        }, 300);
-      }
-    }, 100);
+    if (progress && loader) {
+      progress.style.width = '100%';
+      if (status) status.innerText = 'READY';
+      setTimeout(() => {
+        loader.classList.add('hide');
+      }, 400);
+    }
   });
 
   // Typewriter Effect
-  const phrases = [
-    "BIT Student @ Janamaitri Campus",
-    "Full-Stack Web Developer",
-    "AI & Cybersecurity Enthusiast",
-    "Problem Solver"
-  ];
-  let target = document.getElementById('typeTarget');
+  const phrases = ['"web development"', '"artificial intelligence"', '"cybersecurity"', '"freelancing"'];
   let phraseIdx = 0;
   let charIdx = 0;
   let isDeleting = false;
+  const target = document.getElementById('typeTarget');
 
-  function typeStep() {
+  function typeEffect() {
     if (!target) return;
-    const currentPhrase = phrases[phraseIdx];
+    const current = phrases[phraseIdx];
     
     if (isDeleting) {
-      target.textContent = currentPhrase.substring(0, charIdx - 1);
+      target.innerText = current.substring(0, charIdx - 1);
       charIdx--;
     } else {
-      target.textContent = currentPhrase.substring(0, charIdx + 1);
+      target.innerText = current.substring(0, charIdx + 1);
       charIdx++;
     }
 
-    let typeSpeed = isDeleting ? 40 : 80;
+    let speed = isDeleting ? 40 : 80;
 
-    if (!isDeleting && charIdx === currentPhrase.length) {
-      typeSpeed = 2000;
+    if (!isDeleting && charIdx === current.length) {
+      speed = 1800;
       isDeleting = true;
     } else if (isDeleting && charIdx === 0) {
       isDeleting = false;
       phraseIdx = (phraseIdx + 1) % phrases.length;
-      typeSpeed = 500;
+      speed = 400;
     }
 
-    setTimeout(typeStep, typeSpeed);
+    setTimeout(typeEffect, speed);
   }
-  document.addEventListener('DOMContentLoaded', typeStep);
+
+  document.addEventListener('DOMContentLoaded', typeEffect);
 
   // Scroll Reveal Observer
-  const reveals = document.querySelectorAll('.reveal');
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('in');
       }
     });
-  }, { threshold: 0.15 });
+  }, { threshold: 0.1 });
 
-  reveals.forEach(el => observer.observe(el));
-
-  // Contact Form Submission
-  const contactForm = document.getElementById('contactForm');
-  if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
-      e.preventDefault();
-      alert('Thank you for reaching out! Prabhat will get back to you soon.');
-      contactForm.reset();
-    });
-  }
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 </script>
-
 </body>
 </html>
