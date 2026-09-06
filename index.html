@@ -3,15 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Prabhat Bhattarai | Developer</title>
+  <title>Prabhat Bhattarai | Full Stack Developer</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <canvas id="canvas3d"></canvas>
-  <div class="grid-overlay"></div>
 
-  <nav>
-    <a href="index.html" class="logo">prabhat<span>.dev</span></a>
+  <nav class="navbar">
+    <a href="index.html" class="logo">Prabhat<span>.</span></a>
     <div class="nav-links">
       <a href="index.html" class="active">Home</a>
       <a href="about.html">About</a>
@@ -20,60 +18,22 @@
     </div>
   </nav>
 
-  <main style="display: flex; align-items: center; justify-content: center; min-height: 80vh;">
-    <div style="text-align: center; transform: translateY(-5vh);">
-      <span class="mono">📍 Kathmandu, Nepal • Available for Internships</span>
-      <h1 style="margin: 20px 0;">Engineering <br>Digital Experiences.</h1>
-      <p style="margin: 0 auto 30px;">I'm Prabhat Bhattarai, a BIT student and full-stack developer bridging the gap between design, robust engineering, and cybersecurity.</p>
-      <div style="display: flex; gap: 16px; justify-content: center;">
-        <a href="projects.html" class="btn">View Architecture</a>
-        <a href="resume.pdf" target="_blank" class="btn outline">Download CV</a>
+  <main>
+    <div class="hero">
+      <div class="hero-greeting">Hi, my name is Prabhat Bhattarai</div>
+      <h1>I build professional web applications.</h1>
+      <p>I am a BIT student and Full-Stack Developer based in Kathmandu, Nepal. I specialize in building scalable, secure, and modern digital experiences using React, Node.js, and PostgreSQL.</p>
+      
+      <div class="btn-group">
+        <a href="projects.html" class="btn btn-primary">View My Work</a>
+        <a href="contact.html" class="btn btn-outline">Get in Touch</a>
       </div>
     </div>
   </main>
 
-  <script>
-    const canvas = document.getElementById('canvas3d');
-    const ctx = canvas.getContext('2d');
-    let width, height, particles = [];
+  <footer>
+    <p>&copy; 2026 Prabhat Bhattarai. All rights reserved.</p>
+  </footer>
 
-    function init() {
-      width = canvas.width = window.innerWidth;
-      height = canvas.height = window.innerHeight;
-      particles = [];
-      for (let i = 0; i < 100; i++) {
-        particles.push({
-          x: Math.random() * width, y: Math.random() * height,
-          z: Math.random() * 2,
-          vx: (Math.random() - 0.5) * 0.5, vy: (Math.random() - 0.5) * 0.5
-        });
-      }
-    }
-
-    let mouse = { x: null, y: null };
-    window.addEventListener('mousemove', e => { mouse.x = e.x; mouse.y = e.y; });
-    window.addEventListener('resize', init);
-
-    function animate() {
-      ctx.clearRect(0, 0, width, height);
-      
-      particles.forEach(p => {
-        p.x += p.vx; p.y += p.vy;
-        if (p.x < 0 || p.x > width) p.vx *= -1;
-        if (p.y < 0 || p.y > height) p.vy *= -1;
-
-        let dx = mouse.x ? (mouse.x - p.x) * (p.z * 0.01) : 0;
-        let dy = mouse.y ? (mouse.y - p.y) * (p.z * 0.01) : 0;
-
-        ctx.beginPath();
-        ctx.arc(p.x + dx, p.y + dy, p.z * 1.5, 0, Math.PI * 2);
-        ctx.fillStyle = 'rgba(56, 189, 248, 0.4)';
-        ctx.fill();
-      });
-
-      requestAnimationFrame(animate);
-    }
-    init(); animate();
-  </script>
 </body>
 </html>
