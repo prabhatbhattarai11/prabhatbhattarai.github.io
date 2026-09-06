@@ -32,7 +32,6 @@
     </div>
   </main>
 
-  <!-- Vanilla 3D Canvas Engine -->
   <script>
     const canvas = document.getElementById('canvas3d');
     const ctx = canvas.getContext('2d');
@@ -45,7 +44,7 @@
       for (let i = 0; i < 100; i++) {
         particles.push({
           x: Math.random() * width, y: Math.random() * height,
-          z: Math.random() * 2, // 3D Depth
+          z: Math.random() * 2,
           vx: (Math.random() - 0.5) * 0.5, vy: (Math.random() - 0.5) * 0.5
         });
       }
@@ -63,7 +62,6 @@
         if (p.x < 0 || p.x > width) p.vx *= -1;
         if (p.y < 0 || p.y > height) p.vy *= -1;
 
-        // 3D Parallax effect on mouse move
         let dx = mouse.x ? (mouse.x - p.x) * (p.z * 0.01) : 0;
         let dy = mouse.y ? (mouse.y - p.y) * (p.z * 0.01) : 0;
 
