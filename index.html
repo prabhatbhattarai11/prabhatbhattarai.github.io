@@ -1,201 +1,238 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Prabhat Bhattarai — BIT Student &amp; Developer</title>
-<link rel="icon" type="image/png" href="favicon.png">
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --bg-base: #f4f6ff;
-    --text-primary: #0f172a;
-    --text-muted: #475569;
-    --surface-glass-card: rgba(255, 255, 255, 0.85);
-    --border-glass: rgba(255, 255, 255, 0.9);
-    --shadow-soft: 0 20px 40px -15px rgba(99, 102, 241, 0.12);
-    --shadow-hover: 0 25px 50px -12px rgba(99, 102, 241, 0.22);
-    --accent-purple: #6366f1;
-    --accent-pink: #ec4899;
-    --accent-cyan: #06b6d4;
-    --radius: 20px;
-  }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Personal Portfolio of Prabhat Bhattarai - Web Developer, BIT Student, Cybersecurity & AI Enthusiast.">
+    
+    <!-- Security Headers -->
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data: https:; connect-src 'self';">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
 
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
+    <title>Prabhat Bhattarai | Portfolio</title>
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
 
-  body {
-    background-color: var(--bg-base);
-    color: var(--text-primary);
-    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
-    line-height: 1.6;
-    overflow-x: hidden;
-    position: relative;
-    min-height: 100vh;
-  }
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-  .gradient-bg {
-    position: fixed;
-    top: 0; left: 0; width: 100vw; height: 100vh;
-    z-index: -1;
-    overflow: hidden;
-    background: radial-gradient(circle at 50% 50%, #f4f6ff 0%, #eef2ff 100%);
-  }
+    <!-- Font Awesome CDN with SRI -->
+    <link rel="stylesheet" 
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" 
+          integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" 
+          crossorigin="anonymous" 
+          referrerpolicy="no-referrer" />
 
-  .blob {
-    position: absolute;
-    filter: blur(80px);
-    opacity: 0.6;
-    border-radius: 50%;
-    animation: floatBlob 18s ease-in-out infinite alternate;
-  }
-  .blob-1 { top: -10%; left: -10%; width: 50vw; height: 50vw; background: linear-gradient(135deg, #c084fc, #6366f1); }
-  .blob-2 { bottom: -10%; right: -5%; width: 45vw; height: 45vw; background: linear-gradient(135deg, #f472b6, #38bdf8); animation-delay: -5s; }
-  .blob-3 { top: 40%; left: 30%; width: 35vw; height: 35vw; background: linear-gradient(135deg, #a7f3d0, #6366f1); animation-delay: -9s; opacity: 0.4; }
-
-  @keyframes floatBlob {
-    0%   { transform: translate(0px, 0px) scale(1) rotate(0deg); }
-    50%  { transform: translate(60px, 40px) scale(1.08) rotate(120deg); }
-    100% { transform: translate(-40px, 80px) scale(0.95) rotate(240deg); }
-  }
-
-  .mono { font-family: 'JetBrains Mono', monospace; }
-  a { color: inherit; text-decoration: none; }
-  ul { list-style: none; }
-
-  .wrap { max-width: 1180px; margin: 0 auto; padding: 0 28px; }
-  section { padding: 100px 0; position: relative; }
-
-  .glass-card {
-    background: var(--surface-glass-card);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border: 1px solid var(--border-glass);
-    border-radius: var(--radius);
-    box-shadow: var(--shadow-soft);
-    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-  }
-  .glass-card:hover { box-shadow: var(--shadow-hover); }
-
-  /* Nav */
-  header.nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    background: rgba(244, 246, 255, 0.65);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.8);
-  }
-  .nav-inner {
-    max-width: 1180px; margin: 0 auto; padding: 18px 28px;
-    display: flex; align-items: center; justify-content: space-between;
-  }
-  .logo { font-family: 'JetBrains Mono', monospace; font-weight: 800; font-size: 18px; display: flex; align-items: center; gap: 8px; color: #0f172a; }
-  .logo .badge-dot { width: 10px; height: 10px; border-radius: 50%; background: linear-gradient(135deg, var(--accent-pink), var(--accent-purple)); box-shadow: 0 0 10px rgba(236, 72, 153, 0.5); }
-  .nav-links { display: flex; gap: 28px; align-items: center; }
-  .nav-links a { font-size: 14.5px; color: var(--text-muted); font-weight: 600; transition: color .2s ease; }
-  .nav-links a:hover { color: var(--accent-purple); }
-
-  /* Hero */
-  .hero { min-height: 100vh; display: flex; align-items: center; padding-top: 100px; }
-  .hero-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 60px; align-items: center; }
-  .hero-kicker {
-    font-family: 'JetBrains Mono', monospace;
-    color: var(--accent-purple); font-size: 12.5px; font-weight: 700;
-    letter-spacing: .08em; text-transform: uppercase;
-    margin-bottom: 22px; display: inline-flex; align-items: center; gap: 10px;
-    padding: 8px 16px; border-radius: 99px;
-    background: rgba(255, 255, 255, 0.8); border: 1px solid var(--border-glass);
-    box-shadow: 0 4px 15px rgba(99, 102, 241, 0.08);
-  }
-  .hero-kicker .live-dot { width: 8px; height: 8px; border-radius: 50%; background: #10b981; box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.25); }
-  .hero h1 { font-size: clamp(40px, 5.2vw, 64px); font-weight: 800; line-height: 1.1; letter-spacing: -0.03em; margin-bottom: 20px; color: #0f172a; }
-  .hero h1 span.gradient-text { background: linear-gradient(135deg, var(--accent-purple), var(--accent-pink)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-  .hero p.desc { color: var(--text-muted); max-width: 480px; margin-bottom: 36px; font-size: 16.5px; }
-  .btn-row { display: flex; gap: 16px; flex-wrap: wrap; }
-  .btn { font-size: 14.5px; font-weight: 700; padding: 15px 28px; border-radius: 14px; display: inline-flex; align-items: center; gap: 8px; transition: all 0.25s ease; }
-  .btn-primary { background: linear-gradient(135deg, var(--accent-purple), #4f46e5); color: #fff; box-shadow: 0 10px 25px -5px rgba(99, 102, 241, 0.4); }
-  .btn-primary:hover { transform: translateY(-3px); }
-  .btn-ghost { background: rgba(255, 255, 255, 0.8); color: var(--text-primary); border: 1px solid var(--border-glass); }
-  .btn-ghost:hover { transform: translateY(-3px); border-color: var(--accent-purple); }
-
-  /* Hero Photo */
-  .hero-photo-col { display: flex; align-items: center; justify-content: center; }
-  .hero-photo-wrap { position: relative; width: 340px; height: 340px; }
-  .hero-photo-ring {
-    width: 100%; height: 100%; border-radius: 50%; padding: 5px;
-    background: linear-gradient(135deg, var(--accent-purple), var(--accent-pink), var(--accent-cyan));
-    box-shadow: 0 20px 60px -10px rgba(99, 102, 241, 0.45);
-  }
-  .hero-photo-img {
-    width: 100%; height: 100%; border-radius: 50%;
-    object-fit: cover; object-position: center top;
-    border: 4px solid #fff; display: block;
-  }
-
-  /* Contact Section Preview */
-  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; }
-  form.contact-form { padding: 36px; }
-  .field { display: flex; flex-direction: column; gap: 8px; margin-bottom: 16px; }
-  label { font-size: 13px; color: var(--text-muted); font-family: 'JetBrains Mono', monospace; font-weight: 600; }
-  input, textarea { background: rgba(255, 255, 255, 0.9); border: 1px solid #cbd5e1; border-radius: 10px; padding: 13px 16px; font-family: inherit; outline: none; }
-  input:focus, textarea:focus { border-color: var(--accent-purple); box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.15); }
-
-  footer { border-top: 1px solid rgba(226, 232, 240, 0.8); padding: 40px 0; text-align: center; }
-  footer p { font-size: 14px; color: var(--text-muted); font-family: 'JetBrains Mono', monospace; }
-
-  @media (max-width: 900px) {
-    .hero-grid, .contact-grid { grid-template-columns: 1fr; }
-    .nav-links { display: none; }
-  }
-</style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div class="gradient-bg">
-  <div class="blob blob-1"></div>
-  <div class="blob blob-2"></div>
-  <div class="blob blob-3"></div>
-</div>
-
-<header class="nav">
-  <div class="nav-inner">
-    <div class="logo"><span class="badge-dot"></span>prabhat<span style="color:var(--accent-purple)">.dev</span></div>
-    <ul class="nav-links">
-      <li><a href="#about">About</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </div>
-</header>
-
-<section class="hero">
-  <div class="wrap hero-grid">
-    <div>
-      <div class="hero-kicker"><span class="live-dot"></span>OPEN TO FREELANCE &amp; INTERNSHIP WORK</div>
-      <h1>Prabhat Bhattarai<br><span class="gradient-text">builds things,</span> mostly at 1am.</h1>
-      <p class="desc">BIT student at Bagmati University (Janamaitri Campus), Kathmandu — currently in my 2nd semester building web apps, AI tools, and exploring cybersecurity.</p>
-      <div class="btn-row">
-        <a href="#projects" class="btn btn-primary">View Projects →</a>
-        <a href="resume.pdf" class="btn btn-ghost" target="_blank" rel="noopener">↓ View Resume</a>
-      </div>
+    <!-- Ambient Blobs -->
+    <div class="blob-container" aria-hidden="true">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
     </div>
 
-    <div class="hero-photo-col">
-      <div class="hero-photo-wrap">
-        <div class="hero-photo-ring">
-          <!-- Replace the src attribute with your actual image file path or clean base64 string -->
-          <img src="profile.jpg" alt="Prabhat Bhattarai" class="hero-photo-img" onerror="this.src='https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=500&q=80'">
+    <!-- Navigation Bar -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#hero" class="nav-logo">&lt;Prabhat /&gt;</a>
+            
+            <ul class="nav-menu">
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+
+            <div class="hamburger" id="hamburger" aria-label="Toggle Navigation Menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
         </div>
-      </div>
-    </div>
-  </div>
-</section>
+    </nav>
 
-<footer>
-  <div class="wrap">
-    <p>© 2026 Prabhat Bhattarai. Built with clean code &amp; creativity.</p>
-  </div>
-</footer>
+    <main>
+        <!-- Hero Section -->
+        <section id="hero" class="hero-section">
+            <div class="hero-content">
+                <div class="status-badge">
+                    <span class="pulse-dot"></span>
+                    <span>OPEN TO FREELANCE & INTERNSHIP WORK</span>
+                </div>
+                
+                <h1 class="hero-title">Hi, I'm <span class="highlight">Prabhat Bhattarai</span></h1>
+                <p class="hero-subtitle"><span id="typing-text"></span><span class="cursor">&nbsp;</span></p>
+                <p class="hero-description">
+                    2nd Semester BIT Student passionate about building scalable web applications, exploring Cybersecurity fundamentals, and learning Machine Learning.
+                </p>
 
+                <div class="hero-cta">
+                    <a href="#projects" class="btn btn-primary">View Projects <i class="fa-solid fa-arrow-right"></i></a>
+                    <a href="assets/resume.pdf" class="btn btn-outline" download target="_blank" rel="noopener noreferrer">Resume <i class="fa-solid fa-download"></i></a>
+                </div>
+
+                <div class="hero-socials">
+                    <a href="https://github.com/prabhatbhattarai" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+                    <a href="https://linkedin.com/in/prabhatbhattarai" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="mailto:prabhatbhattarai456@gmail.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="section">
+            <div class="section-title-wrapper">
+                <h2 class="section-title">About Me</h2>
+                <div class="title-underline"></div>
+            </div>
+
+            <div class="about-grid">
+                <div class="about-card glass">
+                    <h3>Who I Am</h3>
+                    <p>I am a Bachelor of Information Technology (BIT) student at Bagmati University (Janamaitri Campus) in Kathmandu, Nepal. I specialize in modern full-stack development while developing a strong foundation in Cybersecurity and AI systems.</p>
+                </div>
+                
+                <div class="about-stats glass">
+                    <div class="stat-item">
+                        <span class="stat-number">2nd</span>
+                        <span class="stat-label">Semester BIT Student</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">2+</span>
+                        <span class="stat-label">Active Projects</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="section">
+            <div class="section-title-wrapper">
+                <h2 class="section-title">Featured Projects</h2>
+                <div class="title-underline"></div>
+            </div>
+
+            <div class="projects-grid">
+                <!-- Project 1 -->
+                <article class="project-card glass">
+                    <div class="project-image">
+                        <img src="assets/karigar-preview.jpg" alt="Karigar Freelance Marketplace Preview" loading="lazy">
+                    </div>
+                    <div class="project-info">
+                        <h3>Karigar</h3>
+                        <p>A dedicated freelance marketplace designed for Nepal, enabling skilled individuals to list services and connect with local clients directly.</p>
+                        
+                        <div class="project-tech">
+                            <span>React</span>
+                            <span>Express</span>
+                            <span>PostgreSQL</span>
+                            <span>Khalti</span>
+                        </div>
+
+                        <div class="project-links">
+                            <a href="https://github.com/prabhatbhattarai/karigar" target="_blank" rel="noopener noreferrer" class="btn-icon" aria-label="Karigar Source Code"><i class="fa-brands fa-github"></i> Source</a>
+                            <a href="#" target="_blank" rel="noopener noreferrer" class="btn-icon" aria-label="Karigar Live Demo"><i class="fa-solid fa-external-link"></i> Live Demo</a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="section">
+            <div class="section-title-wrapper">
+                <h2 class="section-title">Technical Skills</h2>
+                <div class="title-underline"></div>
+            </div>
+
+            <div class="skills-wrapper glass">
+                <div class="skill-category">
+                    <h3>Frontend Development</h3>
+                    <div class="skills-list">
+                        <span class="skill-tag"><i class="fa-brands fa-html5"></i> HTML5</span>
+                        <span class="skill-tag"><i class="fa-brands fa-css3-alt"></i> CSS3 / Glassmorphism</span>
+                        <span class="skill-tag"><i class="fa-brands fa-js"></i> JavaScript</span>
+                        <span class="skill-tag"><i class="fa-brands fa-react"></i> React</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Backend & Databases</h3>
+                    <div class="skills-list">
+                        <span class="skill-tag"><i class="fa-brands fa-node"></i> Node.js</span>
+                        <span class="skill-tag"><i class="fa-brands fa-python"></i> Python</span>
+                        <span class="skill-tag"><i class="fa-solid fa-database"></i> PostgreSQL / SQL</span>
+                    </div>
+                </div>
+
+                <div class="skill-category">
+                    <h3>Security & Core Focus</h3>
+                    <div class="skills-list">
+                        <span class="skill-tag"><i class="fa-solid fa-shield-halved"></i> Web Security Basics</span>
+                        <span class="skill-tag"><i class="fa-solid fa-key"></i> JWT / Authentication</span>
+                        <span class="skill-tag"><i class="fa-brands fa-git-alt"></i> Git Version Control</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="section">
+            <div class="section-title-wrapper">
+                <h2 class="section-title">Get In Touch</h2>
+                <div class="title-underline"></div>
+            </div>
+
+            <div class="contact-card glass">
+                <form action="https://formspree.io/f/your-endpoint" method="POST" class="contact-form">
+                    
+                    <!-- Honeypot Anti-Spam Field (Hidden from human users) -->
+                    <div style="display:none;" aria-hidden="true">
+                        <label for="website-confirm">Do not fill this out if you are human:</label>
+                        <input type="text" name="website-confirm" id="website-confirm" tabindex="-1" autocomplete="off">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="name">Your Name</label>
+                        <input type="text" id="name" name="name" required maxlength="100" autocomplete="name" placeholder="John Doe">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Your Email</label>
+                        <input type="email" id="email" name="email" required maxlength="254" autocomplete="email" placeholder="john@example.com">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" id="subject" name="subject" required maxlength="150" placeholder="Project Inquiry">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="5" required maxlength="2000" placeholder="Hello Prabhat..."></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Send Message <i class="fa-solid fa-paper-plane"></i></button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2026 Prabhat Bhattarai. All rights reserved.</p>
+        <div class="footer-socials">
+            <a href="https://github.com/prabhatbhattarai" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+            <a href="https://linkedin.com/in/prabhatbhattarai" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        </div>
+    </footer>
+
+    <script src="script.js" defer></script>
 </body>
 </html>
