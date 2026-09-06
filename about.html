@@ -7,10 +7,9 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="grid-overlay"></div>
 
-  <nav>
-    <a href="index.html" class="logo">prabhat<span>.dev</span></a>
+  <nav class="navbar">
+    <a href="index.html" class="logo">Prabhat<span>.</span></a>
     <div class="nav-links">
       <a href="index.html">Home</a>
       <a href="about.html" class="active">About</a>
@@ -20,27 +19,51 @@
   </nav>
 
   <main>
-    <span class="mono">// 02 — THE JOURNEY</span>
-    <h2>Hardware to Software.</h2>
-    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 40px;">
-      <div>
-        <h3 style="margin-bottom: 16px; font-size: 1.2rem;">Background</h3>
-        <p>I am currently a 2nd-semester Bachelor of Information Technology (BIT) student at Bagmati University (Janamaitri Campus) in Kathmandu. I combine academic CS theory with aggressive real-world building.</p>
-        <p>Previously, I worked as a Video Editor & Web Developer at Smart Chiya, optimizing visual pacing and managing digital assets.</p>
+    <h1 class="section-title">About Me</h1>
+    <p class="section-subtitle">My background, education, and technical expertise.</p>
+
+    <div class="grid" style="align-items: start;">
+      <div class="card">
+        <h3>Professional Background</h3>
+        <p>I am a highly motivated technology enthusiast currently pursuing my Bachelor of Information Technology (BIT) at Bagmati University (Janamaitri Campus) in Kathmandu, Nepal.</p>
+        <p>My core focus is on full-stack web development, where I bridge the gap between clean frontend user interfaces and robust backend architectures. Previously, I gained professional experience as a Video Editor and Web Developer at Smart Chiya, where I managed digital assets and enhanced brand presence.</p>
       </div>
-      
-      <div class="tilt-card" data-tilt style="padding: 24px;">
-        <h3 style="margin-bottom: 16px; font-size: 1.2rem;">Core Stack</h3>
-        <ul style="list-style: none; color: var(--text-muted); line-height: 2;">
-          <li><span class="mono">Frontend:</span> React, JavaScript, HTML5/CSS3</li>
-          <li><span class="mono">Backend:</span> Node.js, Express, Python</li>
-          <li><span class="mono">Database:</span> PostgreSQL, SQL</li>
-          <li><span class="mono">Security:</span> JWT Auth, Linux Basics</li>
-        </ul>
+
+      <div class="card">
+        <h3>Technical Skills</h3>
+        <div style="margin-bottom: 1.5rem;">
+          <h4 style="margin-bottom: 0.5rem; color: var(--text-primary);">Frontend</h4>
+          <div class="tags">
+            <span class="tag">HTML5 / CSS3</span>
+            <span class="tag">JavaScript (ES6+)</span>
+            <span class="tag">React.js</span>
+          </div>
+        </div>
+        <div style="margin-bottom: 1.5rem;">
+          <h4 style="margin-bottom: 0.5rem; color: var(--text-primary);">Backend & Database</h4>
+          <div class="tags">
+            <span class="tag">Node.js</span>
+            <span class="tag">Express.js</span>
+            <span class="tag">PostgreSQL</span>
+            <span class="tag">Python</span>
+          </div>
+        </div>
+        <div>
+          <h4 style="margin-bottom: 0.5rem; color: var(--text-primary);">Tools & Concepts</h4>
+          <div class="tags">
+            <span class="tag">Git & GitHub</span>
+            <span class="tag">JWT Authentication</span>
+            <span class="tag">RESTful APIs</span>
+            <span class="tag">Cybersecurity Basics</span>
+          </div>
+        </div>
       </div>
     </div>
   </main>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.0/vanilla-tilt.min.js"></script>
+  <footer>
+    <p>&copy; 2026 Prabhat Bhattarai. All rights reserved.</p>
+  </footer>
+
 </body>
 </html>
