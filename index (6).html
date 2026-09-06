@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Prabhat Bhattarai — BIT Student &amp; Full-Stack Developer</title>
+<meta name="description" content="Personal portfolio of Prabhat Bhattarai, a BIT student and full-stack web developer from Kathmandu, Nepal, exploring web development, AI and cybersecurity." />
+<meta name="author" content="Prabhat Bhattarai" />
+
+<!-- Open Graph -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Prabhat Bhattarai — BIT Student & Full-Stack Developer" />
+<meta property="og:description" content="Personal portfolio of Prabhat Bhattarai, a BIT student and full-stack web developer from Kathmandu, Nepal, exploring web development, AI and cybersecurity." />
+<meta property="og:url" content="https://www.prabhat.dev/" />
+<meta property="og:site_name" content="prabhat.dev" />
+<meta property="og:image" content="/og-image.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Prabhat Bhattarai — BIT Student & Full-Stack Developer" />
+<meta name="twitter:description" content="Personal portfolio of Prabhat Bhattarai, a BIT student and full-stack web developer from Kathmandu, Nepal." />
+
+<!-- Canonical (edit CANONICAL_URL in script.js if your deployed domain differs) -->
+<link rel="canonical" href="https://www.prabhat.dev/" />
+
+<link rel="icon" type="image/svg+xml" href="favicon.svg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<!-- ============ NAVBAR ============ -->
+<header class="nav" id="nav">
+  <div class="nav__inner">
+    <a href="#top" class="nav__brand" aria-label="prabhat.dev home">
+      <span class="nav__prompt">~/</span>prabhat.dev
+    </a>
+
+    <nav class="nav__links" id="navLinks" aria-label="Primary">
+      <a href="#about" class="nav__link" data-nav>About</a>
+      <a href="#experience" class="nav__link" data-nav>Experience</a>
+      <a href="#skills" class="nav__link" data-nav>Skills</a>
+      <a href="#projects" class="nav__link" data-nav>Projects</a>
+      <a href="#certificates" class="nav__link" data-nav>Certificates</a>
+      <a href="#contact" class="nav__link" data-nav>Contact</a>
+    </nav>
+
+    <div class="nav__right">
+      <span class="status-pill" aria-hidden="false">
+        <span class="status-pill__dot"></span>
+        Open to Work
+      </span>
+      <button class="nav__toggle" id="navToggle" aria-expanded="false" aria-controls="mobileMenu" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#about" class="mobile-menu__link" data-nav>About</a>
+    <a href="#experience" class="mobile-menu__link" data-nav>Experience</a>
+    <a href="#skills" class="mobile-menu__link" data-nav>Skills</a>
+    <a href="#projects" class="mobile-menu__link" data-nav>Projects</a>
+    <a href="#certificates" class="mobile-menu__link" data-nav>Certificates</a>
+    <a href="#contact" class="mobile-menu__link" data-nav>Contact</a>
+    <a class="mobile-menu__cta" href="mailto:prabhatbhattarai456@gmail.com">Say hello →</a>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ============ HERO ============ -->
+  <section class="hero" id="top">
+    <div class="hero__bg" aria-hidden="true"></div>
+    <div class="hero__inner">
+
+      <div class="hero__content">
+        <span class="badge">
+          <span class="badge__dot"></span>
+          Open to freelance &amp; internship work
+        </span>
+
+        <h1 class="hero__title">
+          Prabhat Bhattarai builds things, mostly at 1am.
+        </h1>
+
+        <p class="hero__role">
+          <span class="hero__role-prefix">$</span>
+          <span id="roleTyper" class="hero__role-text"></span><span class="caret" aria-hidden="true"></span>
+        </p>
+
+        <p class="hero__desc">
+          BIT student at Bagmati University (Janamaitri Campus), Kathmandu — currently in my 2nd semester and building real software on the side: web apps, a bit of AI, and a growing interest in cybersecurity.
+        </p>
+
+        <div class="hero__actions">
+          <a href="#projects" class="btn btn--primary" data-nav>View Projects <span aria-hidden="true">→</span></a>
+          <a href="resume.pdf" class="btn btn--ghost" download>View Resume <span aria-hidden="true">↓</span></a>
+        </div>
+      </div>
+
+      <div class="hero__visual">
+        <div class="dev-card">
+          <div class="dev-card__bar">
+            <span class="dev-card__light dev-card__light--r"></span>
+            <span class="dev-card__light dev-card__light--y"></span>
+            <span class="dev-card__light dev-card__light--g"></span>
+            <span class="dev-card__path">prabhat@dev-box:~</span>
+          </div>
+          <div class="dev-card__body">
+            <p class="term-line"><span class="term-prompt">$</span> whoami</p>
+            <div class="dev-card__id">
+              <div class="dev-card__avatar" aria-hidden="true">PB</div>
+              <div>
+                <p class="dev-card__name">Prabhat Bhattarai</p>
+                <p class="dev-card__role">BIT Student</p>
+                <p class="dev-card__role">Full-Stack Developer</p>
+              </div>
+            </div>
+            <p class="term-line term-line--muted"><span class="term-prompt">$</span> <span class="cursor-blink">_</span></p>
+          </div>
+        </div>
+
+        <div class="floating-badge floating-badge--top">⚡ Full-Stack Dev</div>
+        <div class="floating-badge floating-badge--bottom">🔒 Cybersec Enthusiast</div>
+      </div>
+
+    </div>
+    <a href="#about" class="scroll-cue" data-nav aria-label="Scroll to About section">
+      <span></span>
+    </a>
+  </section>
+
+  <!-- ============ ABOUT ============ -->
+  <section class="section" id="about">
+    <div class="section__inner">
+      <p class="eyebrow">// 01 — WHOAMI</p>
+      <h2 class="section__title">Still early, already building.</h2>
+
+      <div class="about__grid">
+        <div class="about__text">
+          <p>I'm a Bachelor of Information Technology student at Bagmati University (Janamaitri Campus), working through core CS theory while spending most of my free time shipping modern web applications.</p>
+          <p>Right now that means <strong>Karigar</strong>, a freelance marketplace app built for Nepal featuring a React frontend, Express.js backend, PostgreSQL database, and Khalti payment integration.</p>
+          <p>Outside of coursework, I'm drawn toward AI and cybersecurity — understanding how systems function and break, while actively taking on freelance client work.</p>
+
+          <div class="stat-grid">
+            <div class="stat-card">
+              <p class="stat-card__value">2nd</p>
+              <p class="stat-card__label">Semester, BIT</p>
+            </div>
+            <div class="stat-card">
+              <p class="stat-card__value">2+</p>
+              <p class="stat-card__label">Active Projects</p>
+            </div>
+            <div class="stat-card">
+              <p class="stat-card__value">4</p>
+              <p class="stat-card__label">Core Interests</p>
+            </div>
+            <div class="stat-card">
+              <p class="stat-card__value">&infin;</p>
+              <p class="stat-card__label">Things to Learn</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="terminal" aria-label="Developer profile, shown as code">
+          <div class="terminal__bar">
+            <span class="dev-card__light dev-card__light--r"></span>
+            <span class="dev-card__light dev-card__light--y"></span>
+            <span class="dev-card__light dev-card__light--g"></span>
+            <span class="dev-card__path">dev_profile.json</span>
+          </div>
+          <pre class="terminal__body"><code><span class="term-prompt">prabhat@dev-box:~</span>
+<span class="term-prompt">$</span> cat dev_profile.json
+
+<span class="tok-brace">{</span>
+  <span class="tok-key">"name"</span>: <span class="tok-str">"Prabhat Bhattarai"</span>,
+  <span class="tok-key">"role"</span>: <span class="tok-str">"BIT Student & Full Stack Web Developer"</span>,
+  <span class="tok-key">"location"</span>: <span class="tok-str">"Kathmandu, Nepal"</span>,
+  <span class="tok-key">"building"</span>: <span class="tok-str">"Karigar — Freelance Marketplace for Nepal"</span>,
+  <span class="tok-key">"status"</span>: <span class="tok-str">"Open for Freelance & Internship"</span>
+<span class="tok-brace">}</span></code></pre>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ EXPERIENCE & EDUCATION ============ -->
+  <section class="section" id="experience">
+    <div class="section__inner">
+      <p class="eyebrow">// 02 — EXPERIENCE &amp; EDUCATION</p>
+      <h2 class="section__title">Where I've been spending time.</h2>
+      <p class="section__subtitle">A mix of academic learning and hands-on client / personal software development.</p>
+
+      <ol class="timeline">
+        <li class="timeline__item">
+          <div class="timeline__marker" aria-hidden="true">💼</div>
+          <div class="timeline__card">
+            <p class="timeline__date">2024 — Present</p>
+            <h3 class="timeline__title">Video Editor &amp; Web Developer</h3>
+            <p class="timeline__org">Smart Chiya — Kathmandu, Nepal</p>
+            <ul class="timeline__list">
+              <li>Produced and edited video content, optimizing visual pacing for social engagement.</li>
+              <li>Supported digital asset management and online brand presence.</li>
+              <li>Collaborated on visual concepts to improve target audience strategy.</li>
+            </ul>
+          </div>
+        </li>
+
+        <li class="timeline__item">
+          <div class="timeline__marker" aria-hidden="true">🎓</div>
+          <div class="timeline__card">
+            <p class="timeline__date">2025 — Present</p>
+            <h3 class="timeline__title">Bachelor of Information Technology (BIT)</h3>
+            <p class="timeline__org">Bagmati University (Janamaitri Campus) — Kathmandu</p>
+            <ul class="timeline__list">
+              <li>Currently in 2nd semester, covering mathematics, programming fundamentals, and core CS theory.</li>
+              <li>Building full-stack web applications and exploring cybersecurity fundamentals alongside coursework.</li>
+            </ul>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ============ SKILLS ============ -->
+  <section class="section" id="skills">
+    <div class="section__inner">
+      <p class="eyebrow">// 03 — SKILLS &amp; STACK</p>
+      <h2 class="section__title">What I work with.</h2>
+      <p class="section__subtitle">Technologies and tools I use to turn ideas into digital products.</p>
+
+      <div class="skills__grid">
+        <ul class="skill-list" id="skillList">
+          <!-- populated by script.js from SKILLS data -->
+        </ul>
+
+        <div class="stack">
+          <p class="stack__label">Tech stack</p>
+          <div class="stack__grid" id="stackGrid">
+            <!-- populated by script.js from STACK data -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ PROJECTS ============ -->
+  <section class="section" id="projects">
+    <div class="section__inner">
+      <p class="eyebrow">// 04 — FEATURED WORK</p>
+      <h2 class="section__title">Things I've built.</h2>
+      <p class="section__subtitle">A showcase of full-stack applications and software experiments.</p>
+
+      <div class="projects" id="projectsGrid">
+        <!-- populated by script.js from PROJECTS data -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CERTIFICATES ============ -->
+  <section class="section" id="certificates">
+    <div class="section__inner">
+      <p class="eyebrow">// 05 — CERTIFICATIONS</p>
+      <h2 class="section__title">Certificates &amp; coursework.</h2>
+      <p class="section__subtitle">Add your certifications here as you accomplish new milestones.</p>
+
+      <div class="certs" id="certsGrid">
+        <!-- populated by script.js from CERTIFICATES data -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CONTACT ============ -->
+  <section class="section" id="contact">
+    <div class="section__inner">
+      <p class="eyebrow">// 06 — GET IN TOUCH</p>
+      <h2 class="section__title">Let's build something together.</h2>
+      <p class="section__subtitle">Have an idea, project, or opportunity? Drop me a message below.</p>
+
+      <div class="contact__grid">
+        <div class="contact__cards">
+          <div class="contact-card">
+            <span class="contact-card__icon" aria-hidden="true">🏛️</span>
+            <div>
+              <p class="contact-card__label">University</p>
+              <p class="contact-card__value">Bagmati University (Janamaitri Campus)</p>
+            </div>
+          </div>
+          <div class="contact-card">
+            <span class="contact-card__icon" aria-hidden="true">📍</span>
+            <div>
+              <p class="contact-card__label">Location</p>
+              <p class="contact-card__value">Kathmandu, Nepal</p>
+            </div>
+          </div>
+          <div class="contact-card">
+            <span class="contact-card__icon" aria-hidden="true">✉️</span>
+            <div>
+              <p class="contact-card__label">Email</p>
+              <a class="contact-card__value contact-card__value--link" href="mailto:prabhatbhattarai456@gmail.com">prabhatbhattarai456@gmail.com</a>
+            </div>
+          </div>
+        </div>
+
+        <form class="contact-form" id="contactForm" novalidate>
+          <div class="field">
+            <label for="name">Your name</label>
+            <input type="text" id="name" name="name" autocomplete="name" required />
+            <span class="field__error" id="nameError" role="alert"></span>
+          </div>
+
+          <div class="field">
+            <label for="email">Your email</label>
+            <input type="email" id="email" name="email" autocomplete="email" required />
+            <span class="field__error" id="emailError" role="alert"></span>
+          </div>
+
+          <div class="field">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+            <span class="field__error" id="messageError" role="alert"></span>
+          </div>
+
+          <button type="submit" class="btn btn--primary btn--block">
+            Send Message <span aria-hidden="true">→</span>
+          </button>
+
+          <p class="contact-form__note" id="formNote">
+            This form isn't wired up to an email service yet — submitting will open your email client instead. <a href="mailto:prabhatbhattarai456@gmail.com">Email me directly</a> if that doesn't work for you.
+          </p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="footer__inner">
+    <p class="footer__copy">© <span id="year"></span> Prabhat Bhattarai. Hand-crafted in Kathmandu.</p>
+    <div class="footer__links">
+      <a href="https://github.com/prabhatb" target="_blank" rel="noopener noreferrer">GitHub</a>
+      <a href="mailto:prabhatbhattarai456@gmail.com">Email</a>
+    </div>
+    <p class="footer__terminal">built with curiosity + too much coffee ☕</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
