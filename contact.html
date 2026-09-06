@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact | Prabhat Bhattarai</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="grid-overlay"></div>
+
+  <nav>
+    <a href="index.html" class="logo">prabhat<span>.dev</span></a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="projects.html">Projects</a>
+      <a href="contact.html" class="active">Contact</a>
+    </div>
+  </nav>
+
+  <main style="max-width: 800px;">
+    <span class="mono">// 03 — INITIATE HANDSHAKE</span>
+    <h2>Let's Build.</h2>
+    <p>Whether you need a freelance developer, are offering an internship, or just want to talk code, drop a message.</p>
+
+    <form action="https://formspree.io/f/your-form-id" method="POST" style="margin-top: 40px;">
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px;">
+        <input type="text" name="name" placeholder="Name" required>
+        <input type="email" name="email" placeholder="Email Address" required>
+      </div>
+      <textarea name="message" rows="6" placeholder="Project details or inquiry..." required></textarea>
+      <button type="submit" class="btn">Transmit Message</button>
+    </form>
+
+    <div style="margin-top: 60px; display: flex; gap: 24px; font-family: 'JetBrains Mono', monospace;">
+      <a href="https://github.com/prabhatbhattarai11" target="_blank" style="color: var(--accent); text-decoration: none;">GitHub ↗</a>
+      <a href="https://linkedin.com/in/prabhat-bhattarai-b45b7b378" target="_blank" style="color: var(--accent); text-decoration: none;">LinkedIn ↗</a>
+      <a href="mailto:prabhatbhattarai456@gmail.com" style="color: var(--accent); text-decoration: none;">Email ↗</a>
+    </div>
+  </main>
+</body>
+</html>
